@@ -20,6 +20,7 @@
                         primaryLight: '#dc2626',
                         secondary: '#0f172a', // Technická černá/modrá
                         metal: '#475569', // Ocelová
+                        facebook: '#1877F2', // Facebook modrá
                     },
                     boxShadow: {
                         'hard': '0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.2)',
@@ -33,7 +34,7 @@
             text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
         }
         
-        /* Technická mřížka pro ceník (generovaná CSS, funguje vždy) */
+        /* Technická mřížka pro ceník */
         .bg-tech-grid {
             background-color: #ffffff;
             background-image: linear-gradient(#e5e7eb 1px, transparent 1px), linear-gradient(90deg, #e5e7eb 1px, transparent 1px);
@@ -44,7 +45,7 @@
         .service-card {
             transition: all 0.2s ease;
             border-left: 6px solid #b91c1c;
-            background: rgba(255, 255, 255, 0.95); /* Mírná průhlednost aby prosvítalo pozadí */
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(5px);
         }
         .service-card:hover {
@@ -108,7 +109,7 @@
                     </h2>
                     
                     <p class="text-lg md:text-xl text-slate-300 mb-10 max-w-2xl font-medium border-l-4 border-slate-500 pl-6 bg-black/30 py-2">
-                        Profesionální otevírání dveří, aut a trezorů bez poškození. Jsme síť 19 techniků na Moravě a ve Slezsku.
+                        Profesionální otevírání dveří, aut a trezorů bez poškození. Jsme síť 19 techniků na Moravě a ve Slezsku. Dojezd do 30 minut.
                     </p>
                     
                     <div class="flex flex-col sm:flex-row gap-4">
@@ -125,25 +126,33 @@
                 <div class="md:w-1/3 w-full bg-slate-800/90 backdrop-blur-md p-6 rounded border border-slate-600 shadow-2xl">
                     <h3 class="text-white font-bold text-lg mb-4 uppercase border-b border-slate-600 pb-2">Garantujeme</h3>
                     <ul class="space-y-4">
-                        <li class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded bg-slate-700 flex items-center justify-center text-primary"><i class="fa-solid fa-clock text-xl"></i></div>
+                        <li class="flex items-center gap-3 group p-2 rounded-lg transition-all duration-300 hover:bg-white/10 hover:translate-x-1 cursor-default">
+                            <div class="w-10 h-10 rounded bg-slate-700 flex items-center justify-center text-primary transition-all duration-300 group-hover:bg-primary group-hover:text-white group-hover:scale-110 shadow-lg">
+                                <i class="fa-solid fa-clock text-xl"></i>
+                            </div>
                             <div>
-                                <strong class="block text-white">Rychlost</strong>
-                                <span class="text-slate-400 text-sm">Na místě do 30 min</span>
+                                <strong class="block text-white transition-colors duration-300 group-hover:text-red-400">Rychlost</strong>
+                                <span class="text-slate-400 text-sm transition-colors duration-300 group-hover:text-slate-200">Na místě do 30 min</span>
                             </div>
                         </li>
-                        <li class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded bg-slate-700 flex items-center justify-center text-primary"><i class="fa-solid fa-shield-halved text-xl"></i></div>
+
+                        <li class="flex items-center gap-3 group p-2 rounded-lg transition-all duration-300 hover:bg-white/10 hover:translate-x-1 cursor-default">
+                            <div class="w-10 h-10 rounded bg-slate-700 flex items-center justify-center text-primary transition-all duration-300 group-hover:bg-primary group-hover:text-white group-hover:scale-110 shadow-lg">
+                                <i class="fa-solid fa-shield-halved text-xl"></i>
+                            </div>
                             <div>
-                                <strong class="block text-white">Šetrnost</strong>
-                                <span class="text-slate-400 text-sm">Otevření bez poškození</span>
+                                <strong class="block text-white transition-colors duration-300 group-hover:text-red-400">Šetrnost</strong>
+                                <span class="text-slate-400 text-sm transition-colors duration-300 group-hover:text-slate-200">Otevření zámku bez poškození</span>
                             </div>
                         </li>
-                        <li class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded bg-slate-700 flex items-center justify-center text-primary"><i class="fa-solid fa-tag text-xl"></i></div>
+
+                        <li class="flex items-center gap-3 group p-2 rounded-lg transition-all duration-300 hover:bg-white/10 hover:translate-x-1 cursor-default">
+                            <div class="w-10 h-10 rounded bg-slate-700 flex items-center justify-center text-primary transition-all duration-300 group-hover:bg-primary group-hover:text-white group-hover:scale-110 shadow-lg">
+                                <i class="fa-solid fa-tag text-xl"></i>
+                            </div>
                             <div>
-                                <strong class="block text-white">Cena</strong>
-                                <span class="text-slate-400 text-sm">Férová sazba</span>
+                                <strong class="block text-white transition-colors duration-300 group-hover:text-red-400">Cena</strong>
+                                <span class="text-slate-400 text-sm transition-colors duration-300 group-hover:text-slate-200">Férová sazba</span>
                             </div>
                         </li>
                     </ul>
@@ -274,172 +283,256 @@
                 <span class="text-red-500 font-bold tracking-widest uppercase text-sm">Dojezdová místa</span>
                 <h3 class="text-3xl md:text-4xl font-black mt-2 mb-6 uppercase">Kde zasahujeme?</h3>
                 <p class="text-slate-400 text-lg max-w-2xl mx-auto">
-                    Naši technici jsou strategicky rozmístěni. Najeďte na město pro zobrazení adresy výjezdového místa.
+                    Naši technici jsou strategicky rozmístěni. Najeďte myší na město pro zobrazení adresy a klikněte pro zobrazení na mapě.
                 </p>
             </div>
 
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 mb-10 text-center">
                 
-                <div class="bg-slate-800 border border-slate-700 p-3 rounded hover:border-primary hover:bg-slate-700 transition cursor-help relative group">
-                    <h5 class="font-bold text-sm">Valašské Meziříčí</h5>
-                    <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-max max-w-[200px] bg-primary text-white text-xs font-bold py-1.5 px-3 rounded shadow-xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-20">
-                        U Vodojemu 1230
-                        <div class="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-primary"></div>
+                <div class="location-card bg-slate-800 border border-slate-700 rounded h-16 relative overflow-hidden group cursor-pointer hover:border-primary transition-colors" data-map-query="U Vodojemu 1230, Valašské Meziříčí">
+                    <div class="w-full h-full flex flex-col items-center justify-center px-2 group-hover:opacity-0 transition-opacity duration-300">
+                         <h5 class="font-bold text-sm text-slate-200">Valašské Meziříčí</h5>
+                    </div>
+                    <div class="absolute inset-0 bg-primary flex flex-col items-center justify-center text-white translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out px-2">
+                        <span class="text-xs opacity-90">U Vodojemu 1230</span>
+                        <span class="text-xs font-bold">Valašské Meziříčí</span>
+                        <div class="mt-1 text-[10px] uppercase border border-white/50 px-2 py-0.5 rounded-full">Ukázat na mapě</div>
                     </div>
                 </div>
 
-                <div class="bg-slate-800 border border-slate-700 p-3 rounded hover:border-primary hover:bg-slate-700 transition cursor-help relative group">
-                    <h5 class="font-bold text-sm">Zlín</h5>
-                    <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-max max-w-[200px] bg-primary text-white text-xs font-bold py-1.5 px-3 rounded shadow-xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-20">
-                        V Dolině 133
-                        <div class="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-primary"></div>
+                <div class="location-card bg-slate-800 border border-slate-700 rounded h-16 relative overflow-hidden group cursor-pointer hover:border-primary transition-colors" data-map-query="V Dolině 133, Zlín">
+                    <div class="w-full h-full flex flex-col items-center justify-center px-2 group-hover:opacity-0 transition-opacity duration-300">
+                         <h5 class="font-bold text-sm text-slate-200">Zlín</h5>
+                    </div>
+                    <div class="absolute inset-0 bg-primary flex flex-col items-center justify-center text-white translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out px-2">
+                        <span class="text-xs opacity-90">V Dolině 133</span>
+                        <span class="text-xs font-bold">Zlín</span>
+                        <div class="mt-1 text-[10px] uppercase border border-white/50 px-2 py-0.5 rounded-full">Ukázat na mapě</div>
                     </div>
                 </div>
 
-                <div class="bg-slate-800 border border-slate-700 p-3 rounded hover:border-primary hover:bg-slate-700 transition cursor-help relative group">
-                    <h5 class="font-bold text-sm">Ostrava</h5>
-                    <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-max max-w-[200px] bg-primary text-white text-xs font-bold py-1.5 px-3 rounded shadow-xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-20">
-                        Moravská 2867/102
-                        <div class="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-primary"></div>
+                <div class="location-card bg-slate-800 border border-slate-700 rounded h-16 relative overflow-hidden group cursor-pointer hover:border-primary transition-colors" data-map-query="Moravská 2867/102, Ostrava">
+                    <div class="w-full h-full flex flex-col items-center justify-center px-2 group-hover:opacity-0 transition-opacity duration-300">
+                         <h5 class="font-bold text-sm text-slate-200">Ostrava</h5>
+                    </div>
+                    <div class="absolute inset-0 bg-primary flex flex-col items-center justify-center text-white translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out px-2">
+                        <span class="text-xs opacity-90">Moravská 2867/102</span>
+                        <span class="text-xs font-bold">Ostrava</span>
+                        <div class="mt-1 text-[10px] uppercase border border-white/50 px-2 py-0.5 rounded-full">Ukázat na mapě</div>
                     </div>
                 </div>
 
-                <div class="bg-slate-800 border border-slate-700 p-3 rounded hover:border-primary hover:bg-slate-700 transition cursor-help relative group">
-                    <h5 class="font-bold text-sm">Frýdek Místek</h5>
-                    <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-max max-w-[200px] bg-primary text-white text-xs font-bold py-1.5 px-3 rounded shadow-xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-20">
-                        Třanovského 382
-                        <div class="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-primary"></div>
+                <div class="location-card bg-slate-800 border border-slate-700 rounded h-16 relative overflow-hidden group cursor-pointer hover:border-primary transition-colors" data-map-query="Třanovského 382, Frýdek Místek">
+                    <div class="w-full h-full flex flex-col items-center justify-center px-2 group-hover:opacity-0 transition-opacity duration-300">
+                         <h5 class="font-bold text-sm text-slate-200">Frýdek Místek</h5>
+                    </div>
+                    <div class="absolute inset-0 bg-primary flex flex-col items-center justify-center text-white translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out px-2">
+                        <span class="text-xs opacity-90">Třanovského 382</span>
+                        <span class="text-xs font-bold">Frýdek Místek</span>
+                        <div class="mt-1 text-[10px] uppercase border border-white/50 px-2 py-0.5 rounded-full">Ukázat na mapě</div>
                     </div>
                 </div>
 
-                <div class="bg-slate-800 border border-slate-700 p-3 rounded hover:border-primary hover:bg-slate-700 transition cursor-help relative group">
-                    <h5 class="font-bold text-sm">Lipník n. B.</h5>
-                    <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-max max-w-[200px] bg-primary text-white text-xs font-bold py-1.5 px-3 rounded shadow-xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-20">
-                        Hranická 1118
-                        <div class="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-primary"></div>
+                <div class="location-card bg-slate-800 border border-slate-700 rounded h-16 relative overflow-hidden group cursor-pointer hover:border-primary transition-colors" data-map-query="Hranická 1118, Lipník nad Bečvou">
+                    <div class="w-full h-full flex flex-col items-center justify-center px-2 group-hover:opacity-0 transition-opacity duration-300">
+                         <h5 class="font-bold text-sm text-slate-200">Lipník n. B.</h5>
+                    </div>
+                    <div class="absolute inset-0 bg-primary flex flex-col items-center justify-center text-white translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out px-2">
+                        <span class="text-xs opacity-90">Hranická 1118</span>
+                        <span class="text-xs font-bold">Lipník n. B.</span>
+                        <div class="mt-1 text-[10px] uppercase border border-white/50 px-2 py-0.5 rounded-full">Ukázat na mapě</div>
                     </div>
                 </div>
 
-                <div class="bg-slate-800 border border-slate-700 p-3 rounded hover:border-primary hover:bg-slate-700 transition cursor-help relative group">
-                    <h5 class="font-bold text-sm">Otrokovice</h5>
-                    <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-max max-w-[200px] bg-primary text-white text-xs font-bold py-1.5 px-3 rounded shadow-xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-20">
-                        SNP 1180
-                        <div class="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-primary"></div>
+                <div class="location-card bg-slate-800 border border-slate-700 rounded h-16 relative overflow-hidden group cursor-pointer hover:border-primary transition-colors" data-map-query="SNP 1180, Otrokovice">
+                    <div class="w-full h-full flex flex-col items-center justify-center px-2 group-hover:opacity-0 transition-opacity duration-300">
+                         <h5 class="font-bold text-sm text-slate-200">Otrokovice</h5>
+                    </div>
+                    <div class="absolute inset-0 bg-primary flex flex-col items-center justify-center text-white translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out px-2">
+                        <span class="text-xs opacity-90">SNP 1180</span>
+                        <span class="text-xs font-bold">Otrokovice</span>
+                        <div class="mt-1 text-[10px] uppercase border border-white/50 px-2 py-0.5 rounded-full">Ukázat na mapě</div>
                     </div>
                 </div>
 
-                <div class="bg-slate-800 border border-slate-700 p-3 rounded hover:border-primary hover:bg-slate-700 transition cursor-help relative group">
-                    <h5 class="font-bold text-sm">Uherský Brod</h5>
-                    <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-max max-w-[200px] bg-primary text-white text-xs font-bold py-1.5 px-3 rounded shadow-xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-20">
-                        Osvoboditelů 1810
-                        <div class="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-primary"></div>
+                <div class="location-card bg-slate-800 border border-slate-700 rounded h-16 relative overflow-hidden group cursor-pointer hover:border-primary transition-colors" data-map-query="Osvoboditelů 1810, Uherský Brod">
+                    <div class="w-full h-full flex flex-col items-center justify-center px-2 group-hover:opacity-0 transition-opacity duration-300">
+                         <h5 class="font-bold text-sm text-slate-200">Uherský Brod</h5>
+                    </div>
+                    <div class="absolute inset-0 bg-primary flex flex-col items-center justify-center text-white translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out px-2">
+                        <span class="text-xs opacity-90">Osvoboditelů 1810</span>
+                        <span class="text-xs font-bold">Uherský Brod</span>
+                        <div class="mt-1 text-[10px] uppercase border border-white/50 px-2 py-0.5 rounded-full">Ukázat na mapě</div>
                     </div>
                 </div>
 
-                <div class="bg-slate-800 border border-slate-700 p-3 rounded hover:border-primary hover:bg-slate-700 transition cursor-help relative group">
-                    <h5 class="font-bold text-sm">Přerov</h5>
-                    <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-max max-w-[200px] bg-primary text-white text-xs font-bold py-1.5 px-3 rounded shadow-xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-20">
-                        Jasínkova 355/21
-                        <div class="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-primary"></div>
+                <div class="location-card bg-slate-800 border border-slate-700 rounded h-16 relative overflow-hidden group cursor-pointer hover:border-primary transition-colors" data-map-query="Jasínkova 355/21, Přerov">
+                    <div class="w-full h-full flex flex-col items-center justify-center px-2 group-hover:opacity-0 transition-opacity duration-300">
+                         <h5 class="font-bold text-sm text-slate-200">Přerov</h5>
+                    </div>
+                    <div class="absolute inset-0 bg-primary flex flex-col items-center justify-center text-white translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out px-2">
+                        <span class="text-xs opacity-90">Jasínkova 355/21</span>
+                        <span class="text-xs font-bold">Přerov</span>
+                        <div class="mt-1 text-[10px] uppercase border border-white/50 px-2 py-0.5 rounded-full">Ukázat na mapě</div>
                     </div>
                 </div>
 
-                <div class="bg-slate-800 border border-slate-700 p-3 rounded hover:border-primary hover:bg-slate-700 transition cursor-help relative group">
-                    <h5 class="font-bold text-sm">Vsetín</h5>
-                    <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-max max-w-[200px] bg-primary text-white text-xs font-bold py-1.5 px-3 rounded shadow-xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-20">
-                        Štěpánská 1885
-                        <div class="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-primary"></div>
+                <div class="location-card bg-slate-800 border border-slate-700 rounded h-16 relative overflow-hidden group cursor-pointer hover:border-primary transition-colors" data-map-query="Štěpánská 1885, Vsetín">
+                    <div class="w-full h-full flex flex-col items-center justify-center px-2 group-hover:opacity-0 transition-opacity duration-300">
+                         <h5 class="font-bold text-sm text-slate-200">Vsetín</h5>
+                    </div>
+                    <div class="absolute inset-0 bg-primary flex flex-col items-center justify-center text-white translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out px-2">
+                        <span class="text-xs opacity-90">Štěpánská 1885</span>
+                        <span class="text-xs font-bold">Vsetín</span>
+                        <div class="mt-1 text-[10px] uppercase border border-white/50 px-2 py-0.5 rounded-full">Ukázat na mapě</div>
                     </div>
                 </div>
 
-                <div class="bg-slate-800 border border-slate-700 p-3 rounded hover:border-primary hover:bg-slate-700 transition cursor-help relative group">
-                    <h5 class="font-bold text-sm">Bystřice p. H.</h5>
-                    <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-max max-w-[200px] bg-primary text-white text-xs font-bold py-1.5 px-3 rounded shadow-xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-20">
-                        Čs. brigády 131
-                        <div class="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-primary"></div>
+                <div class="location-card bg-slate-800 border border-slate-700 rounded h-16 relative overflow-hidden group cursor-pointer hover:border-primary transition-colors" data-map-query="Čs. brigády 131, Bystřice pod Hostýnem">
+                    <div class="w-full h-full flex flex-col items-center justify-center px-2 group-hover:opacity-0 transition-opacity duration-300">
+                         <h5 class="font-bold text-sm text-slate-200">Bystřice p. H.</h5>
+                    </div>
+                    <div class="absolute inset-0 bg-primary flex flex-col items-center justify-center text-white translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out px-2">
+                        <span class="text-xs opacity-90">Čs. brigády 131</span>
+                        <span class="text-xs font-bold">Bystřice p. H.</span>
+                        <div class="mt-1 text-[10px] uppercase border border-white/50 px-2 py-0.5 rounded-full">Ukázat na mapě</div>
                     </div>
                 </div>
 
-                <div class="bg-slate-800 border border-slate-700 p-3 rounded hover:border-primary hover:bg-slate-700 transition cursor-help relative group">
-                    <h5 class="font-bold text-sm">Frýdlant n. O.</h5>
-                    <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-max max-w-[200px] bg-primary text-white text-xs font-bold py-1.5 px-3 rounded shadow-xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-20">
-                        Nerudova 702
-                        <div class="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-primary"></div>
+                <div class="location-card bg-slate-800 border border-slate-700 rounded h-16 relative overflow-hidden group cursor-pointer hover:border-primary transition-colors" data-map-query="Nerudova 702, Frýdlant nad Ostravicí">
+                    <div class="w-full h-full flex flex-col items-center justify-center px-2 group-hover:opacity-0 transition-opacity duration-300">
+                         <h5 class="font-bold text-sm text-slate-200">Frýdlant n. O.</h5>
+                    </div>
+                    <div class="absolute inset-0 bg-primary flex flex-col items-center justify-center text-white translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out px-2">
+                        <span class="text-xs opacity-90">Nerudova 702</span>
+                        <span class="text-xs font-bold">Frýdlant n. O.</span>
+                        <div class="mt-1 text-[10px] uppercase border border-white/50 px-2 py-0.5 rounded-full">Ukázat na mapě</div>
                     </div>
                 </div>
 
-                <div class="bg-slate-800 border border-slate-700 p-3 rounded hover:border-primary hover:bg-slate-700 transition cursor-help relative group">
-                    <h5 class="font-bold text-sm">Hranice</h5>
-                    <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-max max-w-[200px] bg-primary text-white text-xs font-bold py-1.5 px-3 rounded shadow-xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-20">
-                        Galašova 1739
-                        <div class="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-primary"></div>
+                <div class="location-card bg-slate-800 border border-slate-700 rounded h-16 relative overflow-hidden group cursor-pointer hover:border-primary transition-colors" data-map-query="Galašova 1739, Hranice">
+                    <div class="w-full h-full flex flex-col items-center justify-center px-2 group-hover:opacity-0 transition-opacity duration-300">
+                         <h5 class="font-bold text-sm text-slate-200">Hranice</h5>
+                    </div>
+                    <div class="absolute inset-0 bg-primary flex flex-col items-center justify-center text-white translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out px-2">
+                        <span class="text-xs opacity-90">Galašova 1739</span>
+                        <span class="text-xs font-bold">Hranice</span>
+                        <div class="mt-1 text-[10px] uppercase border border-white/50 px-2 py-0.5 rounded-full">Ukázat na mapě</div>
                     </div>
                 </div>
 
-                <div class="bg-slate-800 border border-slate-700 p-3 rounded hover:border-primary hover:bg-slate-700 transition cursor-help relative group">
-                    <h5 class="font-bold text-sm">Kroměříž</h5>
-                    <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-max max-w-[200px] bg-primary text-white text-xs font-bold py-1.5 px-3 rounded shadow-xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-20">
-                        Úprkova 3684/3
-                        <div class="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-primary"></div>
+                <div class="location-card bg-slate-800 border border-slate-700 rounded h-16 relative overflow-hidden group cursor-pointer hover:border-primary transition-colors" data-map-query="Úprkova 3684/3, Kroměříž">
+                    <div class="w-full h-full flex flex-col items-center justify-center px-2 group-hover:opacity-0 transition-opacity duration-300">
+                         <h5 class="font-bold text-sm text-slate-200">Kroměříž</h5>
+                    </div>
+                    <div class="absolute inset-0 bg-primary flex flex-col items-center justify-center text-white translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out px-2">
+                        <span class="text-xs opacity-90">Úprkova 3684/3</span>
+                        <span class="text-xs font-bold">Kroměříž</span>
+                        <div class="mt-1 text-[10px] uppercase border border-white/50 px-2 py-0.5 rounded-full">Ukázat na mapě</div>
                     </div>
                 </div>
 
-                <div class="bg-slate-800 border border-slate-700 p-3 rounded hover:border-primary hover:bg-slate-700 transition cursor-help relative group">
-                    <h5 class="font-bold text-sm">Nový Jičín</h5>
-                    <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-max max-w-[200px] bg-primary text-white text-xs font-bold py-1.5 px-3 rounded shadow-xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-20">
-                        Budovatelů 1772/2
-                        <div class="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-primary"></div>
+                <div class="location-card bg-slate-800 border border-slate-700 rounded h-16 relative overflow-hidden group cursor-pointer hover:border-primary transition-colors" data-map-query="Budovatelů 1772/2, Nový Jičín">
+                    <div class="w-full h-full flex flex-col items-center justify-center px-2 group-hover:opacity-0 transition-opacity duration-300">
+                         <h5 class="font-bold text-sm text-slate-200">Nový Jičín</h5>
+                    </div>
+                    <div class="absolute inset-0 bg-primary flex flex-col items-center justify-center text-white translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out px-2">
+                        <span class="text-xs opacity-90">Budovatelů 1772/2</span>
+                        <span class="text-xs font-bold">Nový Jičín</span>
+                        <div class="mt-1 text-[10px] uppercase border border-white/50 px-2 py-0.5 rounded-full">Ukázat na mapě</div>
                     </div>
                 </div>
 
-                <div class="bg-slate-800 border border-slate-700 p-3 rounded hover:border-primary hover:bg-slate-700 transition cursor-help relative group">
-                    <h5 class="font-bold text-sm">Rožnov p. R.</h5>
-                    <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-max max-w-[200px] bg-primary text-white text-xs font-bold py-1.5 px-3 rounded shadow-xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-20">
-                        Meziříčská 1660
-                        <div class="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-primary"></div>
+                <div class="location-card bg-slate-800 border border-slate-700 rounded h-16 relative overflow-hidden group cursor-pointer hover:border-primary transition-colors" data-map-query="Meziříčská 1660, Rožnov pod Radhoštěm">
+                    <div class="w-full h-full flex flex-col items-center justify-center px-2 group-hover:opacity-0 transition-opacity duration-300">
+                         <h5 class="font-bold text-sm text-slate-200">Rožnov p. R.</h5>
+                    </div>
+                    <div class="absolute inset-0 bg-primary flex flex-col items-center justify-center text-white translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out px-2">
+                        <span class="text-xs opacity-90">Meziříčská 1660</span>
+                        <span class="text-xs font-bold">Rožnov p. R.</span>
+                        <div class="mt-1 text-[10px] uppercase border border-white/50 px-2 py-0.5 rounded-full">Ukázat na mapě</div>
                     </div>
                 </div>
 
-                <div class="bg-slate-800 border border-slate-700 p-3 rounded hover:border-primary hover:bg-slate-700 transition cursor-help relative group">
-                    <h5 class="font-bold text-sm">Uherské Hradiště</h5>
-                    <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-max max-w-[200px] bg-primary text-white text-xs font-bold py-1.5 px-3 rounded shadow-xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-20">
-                        Stará Tenice 1199
-                        <div class="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-primary"></div>
+                <div class="location-card bg-slate-800 border border-slate-700 rounded h-16 relative overflow-hidden group cursor-pointer hover:border-primary transition-colors" data-map-query="Stará Tenice 1199, Uherské Hradiště">
+                    <div class="w-full h-full flex flex-col items-center justify-center px-2 group-hover:opacity-0 transition-opacity duration-300">
+                         <h5 class="font-bold text-sm text-slate-200">Uherské Hradiště</h5>
+                    </div>
+                    <div class="absolute inset-0 bg-primary flex flex-col items-center justify-center text-white translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out px-2">
+                        <span class="text-xs opacity-90">Stará Tenice 1199</span>
+                        <span class="text-xs font-bold">Uherské Hradiště</span>
+                        <div class="mt-1 text-[10px] uppercase border border-white/50 px-2 py-0.5 rounded-full">Ukázat na mapě</div>
                     </div>
                 </div>
 
-                <div class="bg-slate-800 border border-slate-700 p-3 rounded hover:border-primary hover:bg-slate-700 transition cursor-help relative group">
-                    <h5 class="font-bold text-sm">Valašské Klobouky</h5>
-                    <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-max max-w-[200px] bg-primary text-white text-xs font-bold py-1.5 px-3 rounded shadow-xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-20">
-                        Luční 914
-                        <div class="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-primary"></div>
+                <div class="location-card bg-slate-800 border border-slate-700 rounded h-16 relative overflow-hidden group cursor-pointer hover:border-primary transition-colors" data-map-query="Luční 914, Valašské Klobouky">
+                    <div class="w-full h-full flex flex-col items-center justify-center px-2 group-hover:opacity-0 transition-opacity duration-300">
+                         <h5 class="font-bold text-sm text-slate-200">Valašské Klobouky</h5>
+                    </div>
+                    <div class="absolute inset-0 bg-primary flex flex-col items-center justify-center text-white translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out px-2">
+                        <span class="text-xs opacity-90">Luční 914</span>
+                        <span class="text-xs font-bold">Valašské Klobouky</span>
+                        <div class="mt-1 text-[10px] uppercase border border-white/50 px-2 py-0.5 rounded-full">Ukázat na mapě</div>
                     </div>
                 </div>
 
-                <div class="bg-slate-800 border border-slate-700 p-3 rounded hover:border-primary hover:bg-slate-700 transition cursor-help relative group">
-                    <h5 class="font-bold text-sm">Příbor</h5>
-                    <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-max max-w-[200px] bg-primary text-white text-xs font-bold py-1.5 px-3 rounded shadow-xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-20">
-                        Dr. Čejky 1518
-                        <div class="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-primary"></div>
+                <div class="location-card bg-slate-800 border border-slate-700 rounded h-16 relative overflow-hidden group cursor-pointer hover:border-primary transition-colors" data-map-query="Dr. Čejky 1518, Příbor">
+                    <div class="w-full h-full flex flex-col items-center justify-center px-2 group-hover:opacity-0 transition-opacity duration-300">
+                         <h5 class="font-bold text-sm text-slate-200">Příbor</h5>
+                    </div>
+                    <div class="absolute inset-0 bg-primary flex flex-col items-center justify-center text-white translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out px-2">
+                        <span class="text-xs opacity-90">Dr. Čejky 1518</span>
+                        <span class="text-xs font-bold">Příbor</span>
+                        <div class="mt-1 text-[10px] uppercase border border-white/50 px-2 py-0.5 rounded-full">Ukázat na mapě</div>
                     </div>
                 </div>
 
-                <div class="bg-slate-800 border border-slate-700 p-3 rounded hover:border-primary hover:bg-slate-700 transition cursor-help relative group">
-                    <h5 class="font-bold text-sm">Havířov</h5>
-                    <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-max max-w-[200px] bg-primary text-white text-xs font-bold py-1.5 px-3 rounded shadow-xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-20">
-                        17. listopadu 1208/20
-                        <div class="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-primary"></div>
+                <div class="location-card bg-slate-800 border border-slate-700 rounded h-16 relative overflow-hidden group cursor-pointer hover:border-primary transition-colors" data-map-query="17. listopadu 1208/20, Havířov">
+                    <div class="w-full h-full flex flex-col items-center justify-center px-2 group-hover:opacity-0 transition-opacity duration-300">
+                         <h5 class="font-bold text-sm text-slate-200">Havířov</h5>
+                    </div>
+                    <div class="absolute inset-0 bg-primary flex flex-col items-center justify-center text-white translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out px-2">
+                        <span class="text-xs opacity-90">17. listopadu 1208/20</span>
+                        <span class="text-xs font-bold">Havířov</span>
+                        <div class="mt-1 text-[10px] uppercase border border-white/50 px-2 py-0.5 rounded-full">Ukázat na mapě</div>
                     </div>
                 </div>
+
             </div>
 
             <div class="text-center">
                 <p class="text-slate-400 text-sm font-medium italic">Vyjíždíme i do okolních obcí. Zavolejte a zeptejte se.</p>
+                
+                <button id="toggleMapBtn" class="mt-6 text-primary font-bold uppercase text-xs tracking-widest hover:text-white transition-colors focus:outline-none flex items-center justify-center gap-2 mx-auto border-b border-dashed border-primary pb-0.5 hover:border-white">
+                    <span>Zobrazit mapu poboček</span>
+                    <i class="fa-solid fa-chevron-down transition-transform duration-300" id="toggleMapIcon"></i>
+                </button>
+
+                <div id="locationsMap" class="hidden w-full h-96 bg-slate-800 rounded shadow-inner border border-slate-700 overflow-hidden relative group mt-8 transition-all duration-500">
+                    <button id="resetMapBtn" class="absolute top-4 left-4 bg-white text-secondary hover:text-primary hover:bg-slate-50 px-4 py-2 rounded shadow-md text-xs font-bold z-20 flex items-center gap-2 transition-all duration-300 hidden border border-slate-200">
+                        <i class="fa-solid fa-rotate-left"></i> Zpět na přehled
+                    </button>
+
+                    <iframe 
+                    src="https://www.google.com/maps/d/u/0/embed?mid=1a_LqESVrIvajubfKi_TpcoHB1ZKvp-c&ehbc=2E312F" 
+                    width="100%" 
+                    height="100%" 
+                    style="border:0; margin-top: -55px; height: calc(100% + 55px);" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade" 
+                    class="absolute inset-0 w-full grayscale hover:grayscale-0 transition-all duration-700 opacity-90 hover:opacity-100">
+                    </iframe>
+                    
+                    <div class="absolute top-4 right-4 bg-slate-900/90 backdrop-blur px-4 py-2 shadow-md text-xs font-bold text-white pointer-events-none z-10 border border-slate-700">
+                    <i class="fa-solid fa-map-pin text-primary mr-1"></i> Síť techniků
+                    </div>
+                </div>
             </div>
         </div>
     </section>
-    
-    </section><section id="cenik" class="py-24 bg-white border-t border-slate-200 relative overflow-hidden">
+
+    <section id="cenik" class="py-24 bg-white border-t border-slate-200 relative overflow-hidden">
         <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/grid-me.png')] opacity-50 pointer-events-none"></div>
         
         <div class="container mx-auto px-4 max-w-4xl relative z-10">
@@ -479,12 +572,10 @@
                         <span class="font-bold">Výroba autoklíče (dálka)</span>
                         <span class="font-black text-slate-900 text-lg">od 2 500 Kč</span>
                     </div>
-                    
                     <div class="p-4 flex justify-between items-center bg-red-50 text-red-900 border-l-4 border-red-600">
                         <span class="font-bold"><i class="fa-solid fa-ban mr-2"></i> Marný výjezd (zrušení na místě)</span>
                         <span class="font-black text-lg">2 000 Kč</span>
                     </div>
-                    
                     <div class="p-4 flex justify-between items-center bg-slate-100 text-slate-800">
                         <span class="font-bold"><i class="fa-solid fa-moon mr-2"></i> Příplatek noc / víkend</span>
                         <span class="font-black text-lg">+ 50 %</span>
@@ -565,12 +656,15 @@
                         </div>
 
                         <div class="flex items-start gap-5">
-                            <div class="w-12 h-12 bg-green-600 text-white flex items-center justify-center rounded shrink-0">
-                                <i class="fa-brands fa-whatsapp text-xl"></i>
+                            <div class="w-12 h-12 bg-facebook text-white flex items-center justify-center rounded shrink-0">
+                                <i class="fa-brands fa-facebook-f text-xl"></i>
                             </div>
                             <div>
-                                <h5 class="font-bold text-secondary text-sm uppercase mb-1">WhatsApp</h5>
-                                <p class="text-slate-500 text-sm">Pošlete fotku dveří pro nacenění.</p>
+                                <h5 class="font-bold text-secondary text-sm uppercase mb-1">Facebook</h5>
+                                <a href="https://www.facebook.com/programovaniklicu" target="_blank" class="text-slate-600 font-medium hover:text-facebook transition-colors">
+                                    Zámečník & Autoklíče
+                                </a>
+                                <p class="text-slate-500 text-xs mt-0.5">Sledujte naši práci a novinky.</p>
                             </div>
                         </div>
 
@@ -682,5 +776,75 @@
         </div>
     </footer>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const btn = document.getElementById('toggleMapBtn');
+            const mapContainer = document.getElementById('locationsMap');
+            const mapIframe = mapContainer.querySelector('iframe');
+            const icon = document.getElementById('toggleMapIcon');
+            const span = btn.querySelector('span');
+            const locationCards = document.querySelectorAll('.location-card');
+            const resetBtn = document.getElementById('resetMapBtn');
+            
+            // Uložíme si původní zdroj mapy hned po načtení stránky
+            const defaultMapSrc = mapIframe.src;
+
+            // Toggle map visibility logic
+            if(btn && mapContainer) {
+                btn.addEventListener('click', () => {
+                    const isHidden = mapContainer.classList.contains('hidden');
+                    
+                    if (isHidden) {
+                        mapContainer.classList.remove('hidden');
+                        span.textContent = "Skrýt mapu poboček";
+                        icon.style.transform = "rotate(180deg)";
+                        setTimeout(() => {
+                            mapContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                        }, 100);
+                    } else {
+                        mapContainer.classList.add('hidden');
+                        span.textContent = "Zobrazit mapu poboček";
+                        icon.style.transform = "rotate(0deg)";
+                    }
+                });
+            }
+
+            // Location card click logic
+            if(locationCards.length > 0 && mapIframe) {
+                locationCards.forEach(card => {
+                    card.addEventListener('click', () => {
+                        const query = card.getAttribute('data-map-query');
+                        if(query) {
+                            // Update map source
+                            mapIframe.src = `https://maps.google.com/maps?q=${encodeURIComponent(query)}&t=&z=15&ie=UTF8&iwloc=&output=embed`;
+                            
+                            // Open map if hidden
+                            if(mapContainer.classList.contains('hidden')) {
+                                mapContainer.classList.remove('hidden');
+                                span.textContent = "Skrýt mapu poboček";
+                                icon.style.transform = "rotate(180deg)";
+                            }
+
+                            // Show Reset Button
+                            resetBtn.classList.remove('hidden');
+
+                            // Scroll to map
+                            setTimeout(() => {
+                                mapContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                            }, 100);
+                        }
+                    });
+                });
+            }
+
+            // Reset Map Logic
+            if(resetBtn && mapIframe) {
+                resetBtn.addEventListener('click', () => {
+                    mapIframe.src = defaultMapSrc;
+                    resetBtn.classList.add('hidden');
+                });
+            }
+        });
+    </script>
 </body>
 </html>
