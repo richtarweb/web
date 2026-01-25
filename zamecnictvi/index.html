@@ -3,25 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-
     <title>Zámečnictví Morava & Slezsko | Síť techniků</title>
-    <meta name="description" content="Profesionální zámečnická pohotovost pro Moravu a Slezsko. Otevírání dveří, aut a trezorů NON-STOP. Rychlý dojezd, šetrné otevírání bez poškození.">
     
-    <script src="https://cdn.tailwindcss.com" async></script>
+    <script src="https://cdn.tailwindcss.com"></script>
     
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-    <noscript>
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-    </noscript>
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
-    <noscript>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    </noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <script>
         tailwind.config = {
@@ -29,11 +16,11 @@
                 extend: {
                     fontFamily: { sans: ['Roboto', 'sans-serif'] },
                     colors: {
-                        primary: '#b91c1c', 
+                        primary: '#b91c1c', // Tmavá dílenská červená
                         primaryLight: '#dc2626',
-                        secondary: '#0f172a', 
-                        metal: '#475569', 
-                        facebook: '#1877F2', 
+                        secondary: '#0f172a', // Technická černá/modrá
+                        metal: '#475569', // Ocelová
+                        facebook: '#1877F2', // Facebook modrá
                     },
                     boxShadow: {
                         'hard': '0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.2)',
@@ -84,12 +71,12 @@
     <header class="fixed w-full top-0 z-50 bg-white/95 backdrop-blur-sm shadow-md border-b-2 border-slate-200 transition-all duration-300">
         <div class="container mx-auto px-4 py-3">
             <div class="flex justify-between items-center">
-                <a href="#" class="flex items-center gap-3 group z-50 relative" aria-label="Domů">
+                <a href="#" class="flex items-center gap-3 group z-50 relative">
                     <div class="bg-secondary text-white p-2.5 rounded shadow group-hover:bg-primary transition-colors duration-300">
                         <i class="fa-solid fa-key text-xl"></i>
                     </div>
                     <div class="leading-tight">
-                        <div class="text-lg md:text-xl font-black text-secondary tracking-tighter uppercase">ZÁMEČNICTVÍ</div>
+                        <h1 class="text-lg md:text-xl font-black text-secondary tracking-tighter uppercase">ZÁMEČNICTVÍ</h1>
                         <span class="text-[10px] md:text-xs text-primary font-bold uppercase tracking-widest block">Morava & Slezsko</span>
                     </div>
                 </a>
@@ -116,7 +103,7 @@
                     </a>
                 </div>
 
-                <button id="mobile-menu-btn" class="lg:hidden text-secondary text-2xl focus:outline-none p-2" aria-label="Otevřít menu">
+                <button id="mobile-menu-btn" class="lg:hidden text-secondary text-2xl focus:outline-none p-2">
                     <i class="fa-solid fa-bars"></i>
                 </button>
             </div>
@@ -140,7 +127,7 @@
     <section class="relative pt-28 pb-16 md:pt-36 md:pb-24 lg:pt-52 lg:pb-40 bg-secondary text-white overflow-hidden">
         <div class="absolute inset-0 z-0">
             <div class="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/80 to-slate-900/50 z-10"></div>
-            <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=2000&auto=format&fit=crop" class="w-full h-full object-cover" alt="Detailní záběr opravy zámku zámečníkem">
+            <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=2000&auto=format&fit=crop" class="w-full h-full object-cover" alt="Oprava zámku detail">
         </div>
         
         <div class="container mx-auto px-4 relative z-20 max-w-6xl">
@@ -151,10 +138,10 @@
                         VÝJEZDY NON-STOP
                     </div>
                     
-                    <h1 class="text-4xl md:text-5xl lg:text-7xl font-black mb-4 md:mb-6 leading-tight tracking-tight text-shadow">
+                    <h2 class="text-4xl md:text-5xl lg:text-7xl font-black mb-4 md:mb-6 leading-tight tracking-tight text-shadow">
                         ZABOUCHLI JSTE SI?<br>
                         <span class="text-red-500">OTEVŘEME IHNED.</span>
-                    </h1>
+                    </h2>
                     
                     <p class="text-base md:text-xl text-slate-300 mb-8 md:mb-10 max-w-2xl font-medium border-l-4 border-slate-500 pl-4 md:pl-6 bg-black/30 py-2">
                         Profesionální otevírání dveří, aut a trezorů bez poškození. Jsme síť 19 techniků na Moravě a ve Slezsku.
@@ -217,7 +204,7 @@
 
     <section id="sluzby" class="py-16 md:py-24 bg-slate-100 relative overflow-hidden">
         <div class="absolute inset-0 z-0">
-             <img src="https://images.unsplash.com/photo-1581092921461-eab62e97a782?q=80&w=2000&auto=format&fit=crop" class="w-full h-full object-cover grayscale opacity-10" alt="Zámečnická dílna s nářadím a klíči">
+             <img src="https://images.unsplash.com/photo-1581092921461-eab62e97a782?q=80&w=2000&auto=format&fit=crop" class="w-full h-full object-cover grayscale opacity-10" alt="Zámečnická dílna pozadí">
              <div class="absolute inset-0 bg-gradient-to-b from-slate-100 via-transparent to-slate-100"></div>
         </div>
 
@@ -334,7 +321,7 @@
 
     <section id="lokality" class="py-16 md:py-24 bg-slate-900 text-white relative overflow-hidden border-y-4 border-primary">
         <div class="absolute inset-0 opacity-25 pointer-events-none mix-blend-overlay">
-             <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=2000&auto=format&fit=crop" class="w-full h-full object-cover grayscale" alt="Abstraktní mapa města">
+             <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=2000&auto=format&fit=crop" class="w-full h-full object-cover grayscale" alt="Mapa">
         </div>
 
         <div class="container mx-auto px-4 relative z-10">
@@ -580,8 +567,7 @@
                     allowfullscreen="" 
                     loading="lazy" 
                     referrerpolicy="no-referrer-when-downgrade" 
-                    class="absolute inset-0 w-full grayscale hover:grayscale-0 transition-all duration-700 opacity-90 hover:opacity-100"
-                    title="Mapa poboček zámečnictví na Moravě a ve Slezsku">
+                    class="absolute inset-0 w-full grayscale hover:grayscale-0 transition-all duration-700 opacity-90 hover:opacity-100">
                     </iframe>
                     
                     <div class="absolute top-4 right-4 bg-slate-900/90 backdrop-blur px-4 py-2 shadow-md text-xs font-bold text-white pointer-events-none z-10 border border-slate-700">
@@ -610,35 +596,35 @@
                 <div class="divide-y-2 divide-slate-100 text-slate-700">
                     <div class="p-4 flex justify-between items-center hover:bg-slate-50">
                         <span class="font-bold">Nouzové otevření zabouchnutých dveří</span>
-                        <span class="font-black text-slate-900 text-lg whitespace-nowrap">800 Kč</span>
+                        <span class="font-black text-slate-900 text-lg">800 Kč</span>
                     </div>
                     <div class="p-4 flex justify-between items-center hover:bg-slate-50">
                         <span class="font-bold">Nouzové otevření zamčených dveří</span>
-                        <span class="font-black text-slate-900 text-lg whitespace-nowrap">2 000 Kč</span>
+                        <span class="font-black text-slate-900 text-lg">2 000 Kč</span>
                     </div>
                     <div class="p-4 flex justify-between items-center hover:bg-slate-50">
                         <span class="font-bold">Nouzové otevření auta</span>
-                        <span class="font-black text-slate-900 text-lg whitespace-nowrap">1 500 Kč</span>
+                        <span class="font-black text-slate-900 text-lg">1 500 Kč</span>
                     </div>
                     <div class="p-4 flex justify-between items-center hover:bg-slate-50">
                         <span class="font-bold">Montáž / servis dveří a vložek</span>
-                        <span class="font-black text-slate-900 text-lg whitespace-nowrap">1 000 Kč</span>
+                        <span class="font-black text-slate-900 text-lg">1 000 Kč</span>
                     </div>
                     <div class="p-4 flex justify-between items-center hover:bg-slate-50">
                         <span class="font-bold">Výroba obyčejného autoklíče</span>
-                        <span class="font-black text-slate-900 text-lg whitespace-nowrap">1 500 Kč</span>
+                        <span class="font-black text-slate-900 text-lg">1 500 Kč</span>
                     </div>
                     <div class="p-4 flex justify-between items-center hover:bg-slate-50">
                         <span class="font-bold">Výroba dálkového autoklíče</span>
-                        <span class="font-black text-slate-900 text-lg whitespace-nowrap">2 500 Kč</span>
+                        <span class="font-black text-slate-900 text-lg">2 500 Kč</span>
                     </div>
                     <div class="p-4 flex justify-between items-center bg-red-50 text-red-900 border-l-4 border-red-600">
                         <span class="font-bold"><i class="fa-solid fa-ban mr-2"></i> Marný výjezd (zrušení na místě)</span>
-                        <span class="font-black text-lg whitespace-nowrap">2 000 Kč</span>
+                        <span class="font-black text-lg">2 000 Kč</span>
                     </div>
                     <div class="p-4 flex justify-between items-center bg-slate-100 text-slate-800">
                         <span class="font-bold"><i class="fa-solid fa-moon mr-2"></i> Příplatek noc / víkend</span>
-                        <span class="font-black text-lg whitespace-nowrap">+ 50 %</span>
+                        <span class="font-black text-lg">+ 50 %</span>
                     </div>
                 </div>
             </div>
@@ -681,7 +667,7 @@
 
     <section id="kontakt" class="py-24 bg-slate-50 relative relative overflow-hidden">
         <div class="absolute inset-0 opacity-10 pointer-events-none">
-            <img src="https://images.unsplash.com/photo-1581093450021-4a7360e9a6b5?q=80&w=2000&auto=format&fit=crop" class="w-full h-full object-cover grayscale" alt="Technický výkres zámečnictví">
+            <img src="https://images.unsplash.com/photo-1581093450021-4a7360e9a6b5?q=80&w=2000&auto=format&fit=crop" class="w-full h-full object-cover grayscale" alt="Technický výkres">
         </div>
 
         <div class="container mx-auto px-4 relative z-10">
@@ -787,8 +773,7 @@
                     allowfullscreen="" 
                     loading="lazy" 
                     referrerpolicy="no-referrer-when-downgrade" 
-                    class="absolute inset-0 w-full grayscale hover:grayscale-0 transition-all duration-700"
-                    title="Mapa poboček zámečnictví na Moravě a ve Slezsku">
+                    class="absolute inset-0 w-full grayscale hover:grayscale-0 transition-all duration-700">
                  </iframe>
                  
                  <div class="absolute top-4 right-4 bg-white/90 backdrop-blur px-4 py-2 shadow-md text-xs font-bold text-secondary pointer-events-none z-10 border border-slate-300">
@@ -831,9 +816,6 @@
                     </div>
                     <p class="mt-4 text-xs text-slate-500">
                         Provozovatel nenese odpovědnost za škody způsobené zásahem, pokud byl zákazník o riziku poučen.
-                    </p>
-                    <p class="mt-2 text-[10px] text-slate-600">
-                        Zámečník Ostrava, Zámečník Zlín, Zámečník Frýdek-Místek, Zámečník Havířov, Zámečník Přerov, Zámečník Vsetín, Zámečník Valašské Meziříčí, Zámečník Kroměříž, Zámečník Nový Jičín.
                     </p>
                 </div>
             </div>
