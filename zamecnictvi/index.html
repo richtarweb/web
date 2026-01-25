@@ -820,6 +820,9 @@
                     <p class="mt-4 text-xs text-slate-500">
                         Provozovatel nenese odpovědnost za škody způsobené zásahem, pokud byl zákazník o riziku poučen.
                     </p>
+                    <p class="mt-2 text-[10px] text-slate-600">
+                        Zámečník Ostrava, Zámečník Zlín, Zámečník Frýdek-Místek, Zámečník Havířov, Zámečník Přerov, Zámečník Vsetín, Zámečník Valašské Meziříčí, Zámečník Kroměříž, Zámečník Nový Jičín.
+                    </p>
                 </div>
             </div>
 
@@ -841,9 +844,11 @@
                     const isOpen = mobileMenu.classList.contains('open');
                     if (isOpen) {
                         mobileMenu.classList.remove('open');
+                        // Optional: Change icon back to bars
                         mobileBtn.innerHTML = '<i class="fa-solid fa-bars"></i>';
                     } else {
                         mobileMenu.classList.add('open');
+                        // Optional: Change icon to X
                         mobileBtn.innerHTML = '<i class="fa-solid fa-xmark"></i>';
                     }
                 });
