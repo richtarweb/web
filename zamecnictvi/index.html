@@ -3,13 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="description" content="Spolehlivá zámečnická pohotovost pro Ostravu, Zlín a okolí. Otevírání dveří bytů i aut bez poškození. Výjezd do 30 min. Síť 19 techniků na Moravě. Volejte 792 297 447.">
+    
     <title>Zámečnictví Morava & Slezsko | Síť techniků</title>
-    <meta name="description" content="Profesionální zámečnická pohotovost pro Moravu a Slezsko. Otevírání dveří, aut a trezorů NON-STOP. Rychlý dojezd, šetrné otevírání bez poškození.">
     
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Locksmith",
+      "name": "Zámečnictví Morava & Slezsko",
+      "telephone": "+420792297447",
+      "url": "https://www.richtarweb.com",
+      "areaServed": ["Ostrava", "Zlín", "Frýdek-Místek", "Havířov", "Přerov", "Valašské Meziříčí"],
+      "priceRange": "$$",
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"
+        ],
+        "opens": "00:00",
+        "closes": "23:59"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "U Vodojemu 1230",
+        "addressLocality": "Valašské Meziříčí",
+        "postalCode": "757 01",
+        "addressCountry": "CZ"
+      }
+    }
+    </script>
 
     <script>
         tailwind.config = {
@@ -17,11 +52,11 @@
                 extend: {
                     fontFamily: { sans: ['Roboto', 'sans-serif'] },
                     colors: {
-                        primary: '#b91c1c', // Tmavá dílenská červená
+                        primary: '#b91c1c', 
                         primaryLight: '#dc2626',
-                        secondary: '#0f172a', // Technická černá/modrá
-                        metal: '#475569', // Ocelová
-                        facebook: '#1877F2', // Facebook modrá
+                        secondary: '#0f172a', 
+                        metal: '#475569', 
+                        facebook: '#1877F2', 
                     },
                     boxShadow: {
                         'hard': '0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.2)',
@@ -72,7 +107,7 @@
     <header class="fixed w-full top-0 z-50 bg-white/95 backdrop-blur-sm shadow-md border-b-2 border-slate-200 transition-all duration-300">
         <div class="container mx-auto px-4 py-3">
             <div class="flex justify-between items-center">
-                <a href="#" class="flex items-center gap-3 group z-50 relative" aria-label="Domů">
+                <a href="#" class="flex items-center gap-3 group z-50 relative" aria-label="Domů - Zámečnictví Morava & Slezsko">
                     <div class="bg-secondary text-white p-2.5 rounded shadow group-hover:bg-primary transition-colors duration-300">
                         <i class="fa-solid fa-key text-xl"></i>
                     </div>
@@ -128,7 +163,7 @@
     <section class="relative pt-28 pb-16 md:pt-36 md:pb-24 lg:pt-52 lg:pb-40 bg-secondary text-white overflow-hidden">
         <div class="absolute inset-0 z-0">
             <div class="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/80 to-slate-900/50 z-10"></div>
-            <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=2000&auto=format&fit=crop" class="w-full h-full object-cover" alt="Detailní záběr opravy zámku zámečníkem">
+            <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=2000&auto=format&fit=crop" class="w-full h-full object-cover" alt="Detailní záběr opravy zámku zámečníkem - pohotovost">
         </div>
         
         <div class="container mx-auto px-4 relative z-20 max-w-6xl">
@@ -826,7 +861,7 @@
                 </div>
             </div>
 
-            <div class="text-center text-xs text-slate-600 border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="text-center text-xs text-slate-400 border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
                 <p>© 2024 Zámečnická pohotovost.</p>
                 <p>IČO: 01096885 | <a href="#" class="hover:text-white transition-colors">GDPR</a></p>
             </div>
