@@ -3,42 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <meta name="description" content="Spolehlivá zámečnická pohotovost pro Ostravu, Zlín a okolí. Otevírání dveří bytů i aut bez poškození. Výjezd do 30 min. Síť 19 techniků na Moravě. Volejte 792 297 447.">
-    
-    <title>Zámečnická pohotovost Morava & Slezsko | Otevírání dveří NONSTOP</title>
+    <title>Zámečnictví Morava & Slezsko | Síť techniků</title>
+    <meta name="description" content="Profesionální zámečnická pohotovost pro Moravu a Slezsko. Otevírání dveří, aut a trezorů NON-STOP. Rychlý dojezd, šetrné otevírání bez poškození.">
     
     <script src="https://cdn.tailwindcss.com"></script>
     
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Locksmith",
-      "name": "Zámečnictví Morava & Slezsko",
-      "telephone": "+420792297447",
-      "url": "https://www.richtarweb.com",
-      "areaServed": ["Ostrava", "Zlín", "Frýdek-Místek", "Havířov", "Přerov", "Valašské Meziříčí"],
-      "priceRange": "$$",
-      "openingHoursSpecification": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": [
-          "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"
-        ],
-        "opens": "00:00",
-        "closes": "23:59"
-      },
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "U Vodojemu 1230",
-        "addressLocality": "Valašské Meziříčí",
-        "postalCode": "757 01",
-        "addressCountry": "CZ"
-      }
-    }
-    </script>
 
     <script>
         tailwind.config = {
@@ -46,11 +17,11 @@
                 extend: {
                     fontFamily: { sans: ['Roboto', 'sans-serif'] },
                     colors: {
-                        primary: '#b91c1c', 
+                        primary: '#b91c1c', // Tmavá dílenská červená
                         primaryLight: '#dc2626',
-                        secondary: '#0f172a', 
-                        metal: '#475569', 
-                        facebook: '#1877F2', 
+                        secondary: '#0f172a', // Technická černá/modrá
+                        metal: '#475569', // Ocelová
+                        facebook: '#1877F2', // Facebook modrá
                     },
                     boxShadow: {
                         'hard': '0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.2)',
@@ -101,7 +72,7 @@
     <header class="fixed w-full top-0 z-50 bg-white/95 backdrop-blur-sm shadow-md border-b-2 border-slate-200 transition-all duration-300">
         <div class="container mx-auto px-4 py-3">
             <div class="flex justify-between items-center">
-                <a href="#" class="flex items-center gap-3 group z-50 relative">
+                <a href="#" class="flex items-center gap-3 group z-50 relative" aria-label="Domů">
                     <div class="bg-secondary text-white p-2.5 rounded shadow group-hover:bg-primary transition-colors duration-300">
                         <i class="fa-solid fa-key text-xl"></i>
                     </div>
@@ -133,7 +104,7 @@
                     </a>
                 </div>
 
-                <button id="mobile-menu-btn" class="lg:hidden text-secondary text-2xl focus:outline-none p-2">
+                <button id="mobile-menu-btn" class="lg:hidden text-secondary text-2xl focus:outline-none p-2" aria-label="Otevřít menu">
                     <i class="fa-solid fa-bars"></i>
                 </button>
             </div>
@@ -157,7 +128,7 @@
     <section class="relative pt-28 pb-16 md:pt-36 md:pb-24 lg:pt-52 lg:pb-40 bg-secondary text-white overflow-hidden">
         <div class="absolute inset-0 z-0">
             <div class="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/80 to-slate-900/50 z-10"></div>
-            <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=2000&auto=format&fit=crop" class="w-full h-full object-cover" alt="Oprava zámku detail">
+            <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=2000&auto=format&fit=crop" class="w-full h-full object-cover" alt="Detailní záběr opravy zámku zámečníkem">
         </div>
         
         <div class="container mx-auto px-4 relative z-20 max-w-6xl">
@@ -234,7 +205,7 @@
 
     <section id="sluzby" class="py-16 md:py-24 bg-slate-100 relative overflow-hidden">
         <div class="absolute inset-0 z-0">
-             <img src="https://images.unsplash.com/photo-1581092921461-eab62e97a782?q=80&w=2000&auto=format&fit=crop" class="w-full h-full object-cover grayscale opacity-10" alt="Zámečnická dílna pozadí">
+             <img src="https://images.unsplash.com/photo-1581092921461-eab62e97a782?q=80&w=2000&auto=format&fit=crop" class="w-full h-full object-cover grayscale opacity-10" alt="Zámečnická dílna s nářadím a klíči">
              <div class="absolute inset-0 bg-gradient-to-b from-slate-100 via-transparent to-slate-100"></div>
         </div>
 
@@ -351,7 +322,7 @@
 
     <section id="lokality" class="py-16 md:py-24 bg-slate-900 text-white relative overflow-hidden border-y-4 border-primary">
         <div class="absolute inset-0 opacity-25 pointer-events-none mix-blend-overlay">
-             <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=2000&auto=format&fit=crop" class="w-full h-full object-cover grayscale" alt="Mapa">
+             <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=2000&auto=format&fit=crop" class="w-full h-full object-cover grayscale" alt="Abstraktní mapa města">
         </div>
 
         <div class="container mx-auto px-4 relative z-10">
@@ -597,7 +568,8 @@
                     allowfullscreen="" 
                     loading="lazy" 
                     referrerpolicy="no-referrer-when-downgrade" 
-                    class="absolute inset-0 w-full grayscale hover:grayscale-0 transition-all duration-700 opacity-90 hover:opacity-100">
+                    class="absolute inset-0 w-full grayscale hover:grayscale-0 transition-all duration-700 opacity-90 hover:opacity-100"
+                    title="Mapa poboček zámečnictví na Moravě a ve Slezsku">
                     </iframe>
                     
                     <div class="absolute top-4 right-4 bg-slate-900/90 backdrop-blur px-4 py-2 shadow-md text-xs font-bold text-white pointer-events-none z-10 border border-slate-700">
@@ -697,7 +669,7 @@
 
     <section id="kontakt" class="py-24 bg-slate-50 relative relative overflow-hidden">
         <div class="absolute inset-0 opacity-10 pointer-events-none">
-            <img src="https://images.unsplash.com/photo-1581093450021-4a7360e9a6b5?q=80&w=2000&auto=format&fit=crop" class="w-full h-full object-cover grayscale" alt="Technický výkres">
+            <img src="https://images.unsplash.com/photo-1581093450021-4a7360e9a6b5?q=80&w=2000&auto=format&fit=crop" class="w-full h-full object-cover grayscale" alt="Technický výkres zámečnictví">
         </div>
 
         <div class="container mx-auto px-4 relative z-10">
@@ -803,7 +775,8 @@
                     allowfullscreen="" 
                     loading="lazy" 
                     referrerpolicy="no-referrer-when-downgrade" 
-                    class="absolute inset-0 w-full grayscale hover:grayscale-0 transition-all duration-700">
+                    class="absolute inset-0 w-full grayscale hover:grayscale-0 transition-all duration-700"
+                    title="Mapa poboček zámečnictví Morava a Slezsko">
                  </iframe>
                  
                  <div class="absolute top-4 right-4 bg-white/90 backdrop-blur px-4 py-2 shadow-md text-xs font-bold text-secondary pointer-events-none z-10 border border-slate-300">
@@ -847,9 +820,6 @@
                     <p class="mt-4 text-xs text-slate-500">
                         Provozovatel nenese odpovědnost za škody způsobené zásahem, pokud byl zákazník o riziku poučen.
                     </p>
-                    <p class="mt-2 text-[10px] text-slate-600">
-                        Zámečník Ostrava, Zámečník Zlín, Zámečník Frýdek-Místek, Zámečník Havířov, Zámečník Přerov, Zámečník Vsetín, Zámečník Valašské Meziříčí, Zámečník Kroměříž, Zámečník Nový Jičín.
-                    </p>
                 </div>
             </div>
 
@@ -871,11 +841,9 @@
                     const isOpen = mobileMenu.classList.contains('open');
                     if (isOpen) {
                         mobileMenu.classList.remove('open');
-                        // Optional: Change icon back to bars
                         mobileBtn.innerHTML = '<i class="fa-solid fa-bars"></i>';
                     } else {
                         mobileMenu.classList.add('open');
-                        // Optional: Change icon to X
                         mobileBtn.innerHTML = '<i class="fa-solid fa-xmark"></i>';
                     }
                 });
