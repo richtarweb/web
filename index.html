@@ -1,650 +1,930 @@
+
 <!DOCTYPE html>
 <html lang="cs" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Richtarweb | Profesionální tvorba webů</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet">
+    <title>Zámečnictví Morava & Slezsko | Síť techniků</title>
     
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <script>
         tailwind.config = {
             theme: {
                 extend: {
+                    fontFamily: { sans: ['Roboto', 'sans-serif'] },
                     colors: {
-                        primary: '#2563eb', 
-                        secondary: '#3b82f6',
-                        dark: '#0f172a',
-                        light: '#f8fafc',
-                        accent: '#0ea5e9',
+                        primary: '#b91c1c', // Tmavá dílenská červená
+                        primaryLight: '#dc2626',
+                        secondary: '#0f172a', // Technická černá/modrá
+                        metal: '#475569', // Ocelová
+                        facebook: '#1877F2', // Facebook modrá
                     },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        display: ['Plus Jakarta Sans', 'sans-serif'],
-                    },
-                    backgroundImage: {
-                        'grid-pattern': "url(\"data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%232563eb' fill-opacity='0.05' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E\")",
+                    boxShadow: {
+                        'hard': '0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.2)',
                     }
                 }
             }
         }
     </script>
     <style>
-        body {
-            background-color: #f8fafc;
+        .text-shadow {
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
         }
-        .hero-bg {
-            background: radial-gradient(circle at 50% 0%, rgba(37, 99, 235, 0.1) 0%, rgba(248, 250, 252, 0) 70%);
+        
+        .bg-tech-grid {
+            background-color: #ffffff;
+            background-image: linear-gradient(#e5e7eb 1px, transparent 1px), linear-gradient(90deg, #e5e7eb 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        .service-card {
+            transition: all 0.2s ease;
+            border-left: 6px solid #b91c1c;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(5px);
+        }
+        .service-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+            border-left-color: #dc2626;
+            background: #ffffff;
+        }
+        
+        /* Mobile menu transition */
+        #mobile-menu {
+            transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+        }
+        #mobile-menu.open {
+            max-height: 400px;
+            opacity: 1;
         }
     </style>
 </head>
-<body class="text-slate-800 antialiased overflow-x-hidden selection:bg-primary selection:text-white">
+<body class="bg-slate-50 text-slate-800 antialiased">
 
-    <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-lg border-b border-slate-200/60 transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                <div class="flex-shrink-0 font-display font-extrabold text-2xl text-dark tracking-tight cursor-pointer" onclick="window.scrollTo(0,0)">
-                    RICHTAR<span class="text-primary">WEB</span>.
-                </div>
-                
+    <header class="fixed w-full top-0 z-50 bg-white/95 backdrop-blur-sm shadow-md border-b-2 border-slate-200 transition-all duration-300">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <a href="#" class="flex items-center gap-3 group z-50 relative">
+                    <div class="bg-secondary text-white p-2.5 rounded shadow group-hover:bg-primary transition-colors duration-300">
+                        <i class="fa-solid fa-key text-xl"></i>
+                    </div>
+                    <div class="leading-tight">
+                        <h1 class="text-lg md:text-xl font-black text-secondary tracking-tighter uppercase">ZÁMEČNICTVÍ</h1>
+                        <span class="text-[10px] md:text-xs text-primary font-bold uppercase tracking-widest block">Morava & Slezsko</span>
+                    </div>
+                </a>
+
+                <nav class="hidden lg:flex gap-8 text-sm font-bold text-slate-700 uppercase tracking-wide">
+                    <a href="#sluzby" class="hover:text-primary transition-colors duration-300">Služby</a>
+                    <a href="#lokality" class="hover:text-primary transition-colors duration-300">Pobočky</a>
+                    <a href="#cenik" class="hover:text-primary transition-colors duration-300">Ceník</a>
+                    <a href="#kontakt" class="hover:text-primary transition-colors duration-300">Kontakt</a>
+                </nav>
+
                 <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-8">
-                        <a href="#home" class="text-sm font-semibold hover:text-primary transition-colors">Domů</a>
-                        <a href="#about" class="text-sm font-semibold hover:text-primary transition-colors">O mně</a>
-                        <a href="#process" class="text-sm font-semibold hover:text-primary transition-colors">Postup</a>
-                        <a href="#pricing" class="text-sm font-semibold hover:text-primary transition-colors">Ceník</a>
-                        <a href="#portfolio" class="text-sm font-semibold hover:text-primary transition-colors">Reference</a>
-                        <a href="#contact" class="bg-dark text-white px-5 py-2.5 rounded-full font-semibold hover:bg-primary transition-all shadow-lg shadow-blue-900/10 transform hover:-translate-y-0.5">Kontaktovat</a>
-                    </div>
+                    <a href="tel:792297447" class="group relative block overflow-hidden bg-primary rounded shadow-md transition-all duration-300 w-[220px] h-[50px]">
+                        <div class="absolute inset-0 flex items-center justify-center transition-transform duration-300 ease-in-out group-hover:-translate-y-full">
+                            <span class="text-white font-bold uppercase tracking-widest text-sm">KONTAKTUJTE NÁS</span>
+                        </div>
+                        
+                        <div class="absolute inset-0 flex items-center justify-center bg-secondary transition-transform duration-300 ease-in-out translate-y-full group-hover:translate-y-0">
+                            <div class="flex items-center gap-2 text-white">
+                                <i class="fa-solid fa-phone animate-pulse text-xs"></i>
+                                <span class="text-lg font-bold">792 297 447</span>
+                            </div>
+                        </div>
+                    </a>
                 </div>
 
-                <div class="md:hidden">
-                    <button id="mobile-menu-btn" class="text-dark hover:text-primary p-2">
-                        <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-                        </svg>
-                    </button>
-                </div>
+                <button id="mobile-menu-btn" class="lg:hidden text-secondary text-2xl focus:outline-none p-2">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
             </div>
-        </div>
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 absolute w-full shadow-xl">
-            <div class="px-4 pt-2 pb-6 space-y-2">
-                <a href="#home" class="block px-3 py-3 rounded-md text-base font-medium hover:bg-slate-50 text-dark">Domů</a>
-                <a href="#about" class="block px-3 py-3 rounded-md text-base font-medium hover:bg-slate-50 text-dark">O mně</a>
-                <a href="#process" class="block px-3 py-3 rounded-md text-base font-medium hover:bg-slate-50 text-dark">Postup</a>
-                <a href="#pricing" class="block px-3 py-3 rounded-md text-base font-medium hover:bg-slate-50 text-dark">Ceník</a>
-                <a href="#portfolio" class="block px-3 py-3 rounded-md text-base font-medium hover:bg-slate-50 text-dark">Reference</a>
-                <a href="#contact" class="block px-3 py-3 mt-4 text-center bg-primary text-white rounded-lg font-bold">Napiš mi</a>
-            </div>
-        </div>
-    </nav>
 
-    <section id="home" class="relative pt-40 pb-32 px-4 sm:px-6 overflow-hidden hero-bg">
-        <div class="absolute inset-0 bg-grid-pattern opacity-40 -z-10"></div>
+            <div id="mobile-menu" class="lg:hidden bg-white border-t border-slate-100 mt-3">
+                <nav class="flex flex-col py-4 space-y-4 text-center">
+                    <a href="#sluzby" class="text-slate-800 font-bold uppercase tracking-wide py-2 hover:text-primary hover:bg-slate-50">Služby</a>
+                    <a href="#lokality" class="text-slate-800 font-bold uppercase tracking-wide py-2 hover:text-primary hover:bg-slate-50">Pobočky</a>
+                    <a href="#cenik" class="text-slate-800 font-bold uppercase tracking-wide py-2 hover:text-primary hover:bg-slate-50">Ceník</a>
+                    <a href="#kontakt" class="text-slate-800 font-bold uppercase tracking-wide py-2 hover:text-primary hover:bg-slate-50">Kontakt</a>
+                    
+                    <a href="tel:792297447" class="mx-auto bg-primary text-white font-bold py-3 px-8 rounded shadow w-max flex items-center gap-2">
+                        <i class="fa-solid fa-phone"></i>
+                        792 297 447
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="relative pt-28 pb-16 md:pt-36 md:pb-24 lg:pt-52 lg:pb-40 bg-secondary text-white overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/80 to-slate-900/50 z-10"></div>
+            <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=2000&auto=format&fit=crop" class="w-full h-full object-cover" alt="Oprava zámku detail">
+        </div>
         
-        <div class="max-w-6xl mx-auto text-center relative z-10">
-            <div data-aos="zoom-in" data-aos-duration="800">
-                <span class="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-white border border-slate-200 text-slate-600 text-xs font-bold uppercase tracking-wider shadow-sm mb-8 hover:border-primary/50 transition-colors">
-                    <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-                    Přijímám nové zakázky
-                </span>
-            </div>
-            
-            <h1 class="font-display text-5xl sm:text-7xl md:text-8xl font-black text-dark tracking-tight mb-8 leading-relaxed" data-aos="fade-up" data-aos-delay="100">
-                Váš byznys si zaslouží <br/>
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-blue-500 to-cyan-500 pb-2 pt-4 inline-block">skvělý web</span>
-            </h1>
-            
-            <p class="mt-4 text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto mb-12 leading-relaxed" data-aos="fade-up" data-aos-delay="200">
-                Jmenuji se <strong>Pavel Richtar</strong>. Tvořím rychlé a moderní weby na míru, které nejen skvěle vypadají, ale pomáhají vašemu podnikání růst.
-            </p>
-            
-            <div class="flex flex-col sm:flex-row gap-5 justify-center items-center" data-aos="fade-up" data-aos-delay="300">
-                <a href="#contact" class="w-full sm:w-auto px-8 py-4 rounded-full bg-primary text-white font-bold hover:bg-blue-600 transition-all shadow-xl shadow-blue-500/30 text-lg flex items-center justify-center gap-2 group">
-                    Chci web na míru
-                    <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
-                </a>
-                <a href="#portfolio" class="w-full sm:w-auto px-8 py-4 rounded-full bg-white text-slate-700 font-bold border border-slate-200 hover:border-slate-300 hover:bg-slate-50 transition shadow-sm text-lg">
-                    Moje práce
-                </a>
-            </div>
-
-            <div class="mt-16 pt-8 border-t border-slate-200/60 max-w-4xl mx-auto flex flex-wrap justify-center gap-8 text-slate-400 grayscale opacity-70" data-aos="fade-up" data-aos-delay="400">
-                <div class="flex items-center gap-2"><span class="font-bold text-lg">HTML5</span></div>
-                <div class="flex items-center gap-2"><span class="font-bold text-lg">Tailwind CSS</span></div>
-                <div class="flex items-center gap-2"><span class="font-bold text-lg">JavaScript</span></div>
-                <div class="flex items-center gap-2"><span class="font-bold text-lg text-slate-500">Python</span></div>
-                <div class="flex items-center gap-2"><span class="font-bold text-lg">Responsivní Design</span></div>
-            </div>
-        </div>
-    </section>
-
-    <section id="about" class="py-24 bg-white relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row gap-16">
-                
-                <div class="md:w-1/3" data-aos="fade-right">
-                    <span class="text-primary font-bold tracking-wider uppercase text-sm">O mně</span>
-                    <h2 class="font-display text-4xl sm:text-5xl font-bold text-dark mt-4 mb-6">Mladá krev ve světě <span class="text-primary">webdesignu</span></h2>
-                    <p class="text-slate-600 text-lg leading-relaxed mb-6">
-                        Jako student gymnázia přináším do projektů <strong>energii, nejnovější znalosti a maximální nasazení</strong>. Vždy pracuji pouze na jednom webu současně – jsem tu 100% pro vás a poskytuji
-                        
-                        <span class="relative group cursor-help font-bold text-primary decoration-dashed underline underline-offset-4 decoration-2">
-                            garanci
-                            <span class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-48 p-3 bg-dark text-white text-xs font-normal rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none text-center shadow-xl z-20">
-                                Hotový web udělám 2-5 dní od zahájení práce.
-                                <span class="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-dark"></span>
-                            </span>
-                        </span>
-                        
-                        expresního dodání.
+        <div class="container mx-auto px-4 relative z-20 max-w-6xl">
+            <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+                <div class="md:w-2/3 text-left">
+                    <div class="inline-flex items-center gap-2 py-1.5 px-4 rounded bg-red-600 border border-red-500 text-white text-xs md:text-sm font-bold mb-4 md:mb-6 shadow-lg">
+                        <i class="fa-solid fa-triangle-exclamation animate-pulse"></i>
+                        VÝJEZDY NON-STOP
+                    </div>
+                    
+                    <h2 class="text-4xl md:text-5xl lg:text-7xl font-black mb-4 md:mb-6 leading-tight tracking-tight text-shadow">
+                        ZABOUCHLI JSTE SI?<br>
+                        <span class="text-red-500">OTEVŘEME IHNED.</span>
+                    </h2>
+                    
+                    <p class="text-base md:text-xl text-slate-300 mb-8 md:mb-10 max-w-2xl font-medium border-l-4 border-slate-500 pl-4 md:pl-6 bg-black/30 py-2">
+                        Profesionální otevírání dveří, aut a trezorů bez poškození. Jsme síť 19 techniků na Moravě a ve Slezsku.
                     </p>
-                    <p class="text-slate-600 text-lg leading-relaxed mb-8">
-                        Webem to pro mě nekončí. Mým cílem je, aby se o vaší firmě vědělo. Spojuji technické dovednosti s marketingovým myšlením.
-                    </p>
-                    <div class="inline-flex items-center gap-4">
-                        <div class="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center text-2xl">👨‍💻</div>
-                        <div>
-                            <p class="font-bold text-dark">Pavel Richtar</p>
-                            <p class="text-sm text-slate-500">Freelance Web Developer</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="md:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-6">
                     
-                    <div class="bg-slate-50 p-8 rounded-3xl border border-slate-100 hover:border-primary/30 transition-all hover:shadow-xl hover:-translate-y-1 group relative overflow-hidden" data-aos="fade-up" data-aos-delay="0">
-                        <div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0">
-                            <span class="px-3 py-1 bg-white border border-blue-100 rounded-full text-[10px] font-bold tracking-wide text-primary shadow-sm">
-                                HTML5
-                            </span>
-                        </div>
-                        <div class="w-12 h-12 bg-blue-100 text-primary rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-bold text-dark mb-2">Vážený zákazník</h3>
-                        <p class="text-slate-600">Každý klient je pro mě VIP. Vážím si vaší důvěry a přistupuji ke každému projektu, jako by byl můj vlastní.</p>
-                    </div>
-
-                    <div class="bg-slate-50 p-8 rounded-3xl border border-slate-100 hover:border-primary/30 transition-all hover:shadow-xl hover:-translate-y-1 group relative overflow-hidden" data-aos="fade-up" data-aos-delay="100">
-                        <div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0">
-                            <span class="px-3 py-1 bg-white border border-green-100 rounded-full text-[10px] font-bold tracking-wide text-green-600 shadow-sm">
-                                JS TAILWIND
-                            </span>
-                        </div>
-                        <div class="w-12 h-12 bg-green-100 text-green-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-bold text-dark mb-2">Perfektní kooperace</h3>
-                        <p class="text-slate-600">Vytvářím vše přesně podle vašich představ. Průběžně komunikujeme, abyste byli s výsledkem 100% spokojeni.</p>
-                    </div>
-
-                    <div class="bg-slate-50 p-8 rounded-3xl border border-slate-100 hover:border-primary/30 transition-all hover:shadow-xl hover:-translate-y-1 group relative overflow-hidden" data-aos="fade-up" data-aos-delay="200">
-                        <div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0">
-                            <span class="px-3 py-1 bg-white border border-purple-100 rounded-full text-[10px] font-bold tracking-wide text-purple-600 shadow-sm">
-                                JAVASCRIPT
-                            </span>
-                        </div>
-                        <div class="w-12 h-12 bg-purple-100 text-purple-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-bold text-dark mb-2">Rychlost & Moderní design</h3>
-                        <p class="text-slate-600">Žádné zastaralé šablony. Používám moderní technologie pro bleskové načítání a vzhled, který zaujme.</p>
-                    </div>
-
-                    <div class="bg-slate-50 p-8 rounded-3xl border border-slate-100 hover:border-primary/30 transition-all hover:shadow-xl hover:-translate-y-1 group relative overflow-hidden" data-aos="fade-up" data-aos-delay="300">
-                        <div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0">
-                            <span class="px-3 py-1 bg-white border border-orange-100 rounded-full text-[10px] font-bold tracking-wide text-orange-600 shadow-sm">
-                                PYTHON
-                            </span>
-                        </div>
-                        <div class="w-12 h-12 bg-orange-100 text-orange-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-bold text-dark mb-2">Pomoc s propagací</h3>
-                        <p class="text-slate-600">Webem to nekončí. Poradím vám, jak dostat web mezi lidi a nastartovat digitální růst vaší firmy.</p>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="process" class="py-24 bg-slate-50 border-t border-slate-200 relative overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <span class="text-primary font-bold tracking-wider uppercase text-sm">Postup</span>
-                <h2 class="font-display text-3xl sm:text-4xl font-bold text-dark mt-2">Jak probíhá tvorba webu</h2>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
-                
-                <div class="relative pl-8 md:pl-0" data-aos="fade-up" data-aos-delay="0">
-                    <div class="md:text-center">
-                        <div class="w-14 h-14 bg-white border-2 border-primary/20 rounded-2xl flex items-center justify-center text-xl font-bold text-primary shadow-sm mb-4 mx-auto">01</div>
-                        <h3 class="text-lg font-bold text-dark mb-2">Sběr informací a kalkulace</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed">
-                            Nejprve probereme vaši představu, na jejímž základě se odhadne přibližný termín a cena realizace.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="relative pl-8 md:pl-0" data-aos="fade-up" data-aos-delay="100">
-                    <div class="md:text-center">
-                        <div class="w-14 h-14 bg-white border-2 border-primary/20 rounded-2xl flex items-center justify-center text-xl font-bold text-primary shadow-sm mb-4 mx-auto">02</div>
-                        <h3 class="text-lg font-bold text-dark mb-2">Dohodnutí termínů</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed">
-                            Domluvíme se na datu zahájení projektu a termínu dokončení.
-                        </p>
-                        <div class="mt-3 inline-flex items-center gap-2 bg-blue-50 px-3 py-2 rounded-lg border border-blue-100">
-                            <span class="text-lg">⚡</span>
-                            <span class="text-sm font-bold text-primary">Většinou začínám programovat tentýž den.</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="relative pl-8 md:pl-0" data-aos="fade-up" data-aos-delay="200">
-                    <div class="md:text-center">
-                        <div class="w-14 h-14 bg-white border-2 border-primary/20 rounded-2xl flex items-center justify-center text-xl font-bold text-primary shadow-sm mb-4 mx-auto">03</div>
-                        <h3 class="text-lg font-bold text-dark mb-2">Výzkum a příprava</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed">
-                            Zkoumám vaši konkurenci, sbírám reference a potřebné materiály pro design a obsah. To pomáhá vytvořit web, který je jedinečný.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="relative pl-8 md:pl-0" data-aos="fade-up" data-aos-delay="300">
-                    <div class="md:text-center">
-                        <div class="w-14 h-14 bg-white border-2 border-primary/20 rounded-2xl flex items-center justify-center text-xl font-bold text-primary shadow-sm mb-4 mx-auto">04</div>
-                        <h3 class="text-lg font-bold text-dark mb-2">Kódování a vývoj</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed">
-                            Vývoj webu pro desktopy a notebooky, vložení vašeho obsahu. Po schválení následuje pečlivé přizpůsobení pro mobilní zařízení.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="relative pl-8 md:pl-0" data-aos="fade-up" data-aos-delay="400">
-                    <div class="md:text-center">
-                        <div class="w-14 h-14 bg-white border-2 border-primary/20 rounded-2xl flex items-center justify-center text-xl font-bold text-primary shadow-sm mb-4 mx-auto">05</div>
-                        <h3 class="text-lg font-bold text-dark mb-2">Technická optimalizace</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed">
-                            Provádím základní 
-                            <span class="relative group cursor-help font-bold text-primary border-b-2 border-primary/30 hover:border-primary transition-colors">
-                                SEO
-                                <span class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-56 p-3 bg-dark text-white text-xs font-normal rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none text-center shadow-xl z-20 normal-case">
-                                    SEO (Search Engine Optimization) = Optimalizace pro vyhledávače, aby byl váš web vidět na Googlu a Seznamu.
-                                    <span class="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-dark"></span>
-                                </span>
-                            </span>
-                            optimalizaci, nastavuji právně nezbytné informace a zajistím indexaci ve vyhledávačích.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="relative pl-8 md:pl-0" data-aos="fade-up" data-aos-delay="500">
-                    <div class="md:text-center">
-                        <div class="w-14 h-14 bg-white border-2 border-primary/20 rounded-2xl flex items-center justify-center text-xl font-bold text-primary shadow-sm mb-4 mx-auto">06</div>
-                        <h3 class="text-lg font-bold text-dark mb-2">Dokončení a předání</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed">
-                            Kontrola chyb, předání přístupů a návodů (hesla, příručky). Po Vašem schválení probíhá konečné vyúčtování.
-                        </p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <section id="pricing" class="py-24 bg-white border-t border-slate-200">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <span class="text-primary font-bold tracking-wider uppercase text-sm">Ceník</span>
-                <h2 class="font-display text-3xl sm:text-4xl font-bold text-dark mt-2">Oblíbené formáty tvorby</h2>
-                <p class="text-slate-600 mt-4 max-w-2xl mx-auto">Vyberte si řešení, které nejlépe sedí vašim potřebám. Ceny jsou orientační a odvíjí se od náročnosti.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
-                
-                <div class="bg-white p-8 rounded-3xl border border-slate-200 hover:shadow-xl hover:border-primary/30 transition-all duration-300 hover:-translate-y-1" data-aos="fade-up" data-aos-delay="0">
-                    <div class="mb-4 inline-block bg-blue-50 text-primary text-xs font-bold px-3 py-1.5 rounded-full border border-blue-100">
-                        Pro představu: Tento web by stál 5 000 Kč
-                    </div>
-                    
-                    <h3 class="text-xl font-bold text-dark mb-2">Vizitka / One-page</h3>
-                    <p class="text-slate-500 text-sm mb-6">Ideální pro osobní portfolio nebo jednoduchou prezentaci služby.</p>
-                    <div class="text-3xl font-black text-primary mb-6">od 3 000 Kč</div>
-                    
-                    <ul class="space-y-4 mb-8 text-sm text-slate-600">
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                            Moderní jednostránkový web
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                            Responzivní design (mobil, PC)
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                            Základní SEO optimalizace
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                            Kontaktní formulář
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                            Dlouhodobá správa (volitelně)
-                        </li>
-                    </ul>
-                    <a href="#contact" class="block text-center w-full py-3 px-6 rounded-full border border-primary text-primary font-bold hover:bg-primary hover:text-white transition-colors">Poptat web</a>
-                </div>
-
-                <div class="bg-dark text-white p-8 rounded-3xl shadow-xl transform md:-translate-y-4 border border-slate-800 relative overflow-hidden" data-aos="fade-up" data-aos-delay="100">
-                    <h3 class="text-xl font-bold mb-2">Dlouhodobá správa</h3>
-                    <p class="text-slate-400 text-sm mb-6">Starosti s webem nechte na mně. Kompletní technická péče.</p>
-                    <div class="text-3xl font-black text-white mb-2">od 100 Kč</div>
-                    <div class="text-sm text-slate-400 mb-6">měsíčně (nebo od 1 000 ročně)</div>
-                    
-                    <ul class="space-y-4 mb-8 text-sm text-slate-300">
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-primary mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                            Správa webhostingu a domény
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-primary mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                            Pravidelné aktualizace systému
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-primary mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                            Zabezpečení proti útokům
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-primary mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                            Zálohování webu
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-primary mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                            Technická podpora
-                        </li>
-                    </ul>
-                    <a href="#contact" class="block text-center w-full py-3 px-6 rounded-full bg-primary text-white font-bold hover:bg-blue-600 transition-colors shadow-lg shadow-primary/30">Chci správu</a>
-                </div>
-
-                <div class="bg-white p-8 rounded-3xl border border-slate-200 hover:shadow-xl hover:border-primary/30 transition-all duration-300 hover:-translate-y-1" data-aos="fade-up" data-aos-delay="200">
-                    <h3 class="text-xl font-bold text-dark mb-2">Firemní web</h3>
-                    <p class="text-slate-500 text-sm mb-6">Komplexní web pro firmy s více podstránkami a službami.</p>
-                    <div class="text-3xl font-black text-primary mb-6">od 12 000 Kč</div>
-                    
-                    <ul class="space-y-4 mb-8 text-sm text-slate-600">
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                            Vše z varianty Vizitka
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                            Více podstránek (O nás, Služby...)
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                            Pokročilé SEO a rychlost
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                            Napojení na Google Analytics
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                            Dlouhodobá správa (volitelně)
-                        </li>
-                    </ul>
-                    <a href="#contact" class="block text-center w-full py-3 px-6 rounded-full border border-primary text-primary font-bold hover:bg-primary hover:text-white transition-colors">Mám zájem</a>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <section id="portfolio" class="py-24 relative bg-slate-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-end mb-16" data-aos="fade-up">
-                <div>
-                    <span class="text-primary font-bold tracking-wider uppercase text-sm">Portfolio</span>
-                    <h2 class="font-display text-3xl sm:text-4xl font-bold text-dark mt-2">Ukázky práce</h2>
-                </div>
-                <a href="#contact" class="hidden sm:inline-flex items-center font-bold text-primary hover:text-blue-700 transition">Chci také takový web -></a>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="group bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300" data-aos="fade-up">
-                    <div class="h-64 bg-slate-200 overflow-hidden relative">
-                        <div class="absolute inset-0 bg-gradient-to-br from-slate-100 to-slate-200 flex items-center justify-center text-slate-400">
-                            <span class="font-medium">Web klienta 1</span>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <div class="text-xs font-bold text-primary uppercase tracking-wide mb-2">Development</div>
-                        <h3 class="text-xl font-bold text-dark mb-2 group-hover:text-primary transition-colors">Moderní firemní web</h3>
-                        <p class="text-slate-500 text-sm mb-4">Kompletní redesign pro lokální firmu, zaměřeno na konverze.</p>
-                    </div>
-                </div>
-
-                <div class="group bg-white rounded-2xl overflow-hidden border-2 border-dashed border-slate-200 flex flex-col items-center justify-center text-center p-10" data-aos="fade-up" data-aos-delay="100">
-                    <span class="text-5xl mb-4">🔜</span>
-                    <h3 class="text-lg font-bold text-dark">Místo pro váš projekt</h3>
-                    <p class="text-slate-500 text-sm mt-2">Staňte se mým dalším spokojeným klientem.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer id="contact" class="bg-white border-t border-slate-200 pt-16 pb-8 relative overflow-hidden">
-        <div class="absolute top-0 left-0 w-full h-full overflow-hidden -z-10 opacity-30 pointer-events-none">
-            <div class="absolute -top-24 -right-24 w-96 h-96 bg-primary/10 rounded-full blur-3xl"></div>
-            <div class="absolute top-1/2 left-0 w-64 h-64 bg-blue-400/10 rounded-full blur-3xl"></div>
-        </div>
-
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-16">
-                
-                <div data-aos="fade-right">
-                    <div class="font-display font-extrabold text-3xl text-dark mb-6">RICHTAR<span class="text-primary">WEB</span>.</div>
-                    <p class="text-slate-500 text-lg mb-8 leading-relaxed">
-                        Máte dotaz nebo chcete nezávaznou nabídku? Napište mi. Rád s vámi proberu váš projekt u virtuální kávy.
-                    </p>
-
-                    <div class="space-y-4 mb-10">
-                        <a href="tel:+420736131742" class="flex items-center gap-4 text-dark hover:text-primary transition-colors group w-fit">
-                            <div class="w-12 h-12 bg-slate-50 border border-slate-200 rounded-full flex items-center justify-center text-primary group-hover:scale-110 group-hover:border-primary transition-all shadow-sm">
-                                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
-                            </div>
-                            <span class="font-bold text-lg">736 131 742</span>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#lokality" class="w-full sm:w-auto bg-primary hover:bg-red-700 text-white text-lg font-bold py-4 px-10 rounded shadow-hard transition-all duration-300 flex justify-center items-center gap-3 uppercase tracking-wider">
+                            <i class="fa-solid fa-map-location-dot"></i>
+                            Síť poboček
                         </a>
-                        <div class="flex items-center gap-4 text-dark group w-fit">
-                            <div class="w-12 h-12 bg-slate-50 border border-slate-200 rounded-full flex items-center justify-center text-primary shadow-sm">
-                                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
-                            </div>
-                            <span class="font-bold text-lg">richtarweb@gmail.com</span>
-                        </div>
+                        <a href="#cenik" class="w-full sm:w-auto bg-transparent hover:bg-white/10 text-white font-bold py-4 px-10 rounded border-2 border-slate-400 hover:border-white transition-all duration-300 uppercase tracking-wider text-center">
+                            ceník služeb
+                        </a>
                     </div>
-
-                    <div class="relative bg-gradient-to-br from-blue-50 to-white border border-blue-100 p-6 rounded-2xl shadow-lg transform transition hover:-translate-y-1 overflow-hidden">
-                        <div class="absolute -right-6 -top-6 w-20 h-20 bg-blue-500 rounded-full opacity-10 animate-ping"></div>
-                        <div class="flex items-start gap-4 relative z-10">
-                            <div class="bg-primary text-white p-3 rounded-lg shadow-lg shadow-blue-500/30">
-                                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                                </svg>
+                </div>
+                
+                <div class="md:w-1/3 w-full bg-slate-800/90 backdrop-blur-md p-6 rounded border border-slate-600 shadow-2xl mt-8 md:mt-0">
+                    <h3 class="text-white font-bold text-lg mb-4 uppercase border-b border-slate-600 pb-2">proč my?</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-center gap-3 group p-2 rounded-lg transition-all duration-300 hover:bg-white/10 hover:translate-x-1 cursor-default">
+                            <div class="w-10 h-10 rounded bg-slate-700 flex items-center justify-center text-primary transition-all duration-300 group-hover:bg-primary group-hover:text-white group-hover:scale-110 shadow-lg flex-shrink-0">
+                                <i class="fa-solid fa-clock text-xl"></i>
                             </div>
                             <div>
-                                <h4 class="font-bold text-dark text-lg">Garantovaná odezva</h4>
-                                <p class="text-slate-600 text-sm mt-1">
-                                    Váš čas je drahý. Na zprávy z tohoto formuláře odpovídám <span class="font-bold text-primary bg-blue-100 px-1 rounded">do 18 hodin</span>.
+                                <strong class="block text-white transition-colors duration-300 group-hover:text-red-400">široký dosah</strong>
+                                <span class="text-slate-400 text-sm transition-colors duration-300 group-hover:text-slate-200">široká dojezdová oblast s hustým pokrytím poboček</span>
+                            </div>
+                        </li>
+
+                        <li class="flex items-center gap-3 group p-2 rounded-lg transition-all duration-300 hover:bg-white/10 hover:translate-x-1 cursor-default">
+                            <div class="w-10 h-10 rounded bg-slate-700 flex items-center justify-center text-primary transition-all duration-300 group-hover:bg-primary group-hover:text-white group-hover:scale-110 shadow-lg flex-shrink-0">
+                                <i class="fa-solid fa-shield-halved text-xl"></i>
+                            </div>
+                            <div>
+                                <strong class="block text-white transition-colors duration-300 group-hover:text-red-400">Šetrnost</strong>
+                                <span class="text-slate-400 text-sm transition-colors duration-300 group-hover:text-slate-200">odemknutí bez poškození dveří</span>
+                            </div>
+                        </li>
+
+                        <li class="flex items-center gap-3 group p-2 rounded-lg transition-all duration-300 hover:bg-white/10 hover:translate-x-1 cursor-default">
+                            <div class="w-10 h-10 rounded bg-slate-700 flex items-center justify-center text-primary transition-all duration-300 group-hover:bg-primary group-hover:text-white group-hover:scale-110 shadow-lg flex-shrink-0">
+                                <i class="fa-solid fa-certificate text-xl"></i>
+                            </div>
+                            <div>
+                                <strong class="block text-white transition-colors duration-300 group-hover:text-red-400">záruka kvality</strong>
+                                <span class="text-slate-400 text-sm transition-colors duration-300 group-hover:text-slate-200">poskytujeme záruční dobu na veškeré produkty</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
+            <svg class="relative block w-[calc(100%+1.3px)] h-[30px] md:h-[50px]" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" class="fill-[#f1f5f9]"></path>
+            </svg>
+        </div>
+    </section>
+
+    <section id="sluzby" class="py-16 md:py-24 bg-slate-100 relative overflow-hidden">
+        <div class="absolute inset-0 z-0">
+             <img src="https://images.unsplash.com/photo-1581092921461-eab62e97a782?q=80&w=2000&auto=format&fit=crop" class="w-full h-full object-cover grayscale opacity-10" alt="Zámečnická dílna pozadí">
+             <div class="absolute inset-0 bg-gradient-to-b from-slate-100 via-transparent to-slate-100"></div>
+        </div>
+
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="text-center mb-12 md:mb-16">
+                <h3 class="text-3xl md:text-4xl font-black text-secondary uppercase tracking-tight mb-4">Služby</h3>
+                <div class="w-20 h-2 bg-primary mx-auto mb-6"></div>
+                <p class="text-slate-600 max-w-2xl mx-auto font-medium text-lg">
+                    Komplexní péče o vaše bezpečí. Od nouzového otevření přes servis až po pokročilé systémy.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <div class="service-card p-8 shadow-md">
+                    <div class="flex justify-between items-start mb-6">
+                        <h4 class="text-xl font-black text-secondary uppercase">Nouzové<br>otevírání</h4>
+                        <div class="text-4xl text-slate-300">
+                            <i class="fa-solid fa-door-open"></i>
+                        </div>
+                    </div>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4 font-bold text-slate-800">
+                        Zabouchnuté nebo ztracené klíče od bytu?
+                    </p>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Vyřešíme vaši situaci rychle a <strong>bez poškození dveří</strong>. Jsme připraveni zasáhnout kdykoliv.
+                    </p>
+                    <div class="mt-4">
+                        <span class="bg-red-600 text-white text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider shadow-sm"><i class="fa-regular fa-clock mr-1"></i> Non-stop služba</span>
+                    </div>
+                </div>
+
+                <div class="service-card p-8 shadow-md">
+                    <div class="flex justify-between items-start mb-6">
+                        <h4 class="text-xl font-black text-secondary uppercase">Otevírání<br>automobilů</h4>
+                        <div class="text-4xl text-slate-300">
+                            <i class="fa-solid fa-car-side"></i>
+                        </div>
+                    </div>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4 font-bold text-slate-800">
+                        Zabouchnuté klíče v autě nebo v kufru?
+                    </p>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Otevřeme osobní vozy i dodávky bez poškrábání laku či jiného poškození.
+                    </p>
+                    <div class="mt-4">
+                        <span class="bg-red-600 text-white text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider shadow-sm"><i class="fa-regular fa-clock mr-1"></i> Non-stop služba</span>
+                    </div>
+                </div>
+
+                <div class="service-card p-8 shadow-md">
+                    <div class="flex justify-between items-start mb-6">
+                        <h4 class="text-xl font-black text-secondary uppercase">Autoklíče</h4>
+                        <div class="text-4xl text-slate-300">
+                            <i class="fa-solid fa-microchip"></i>
+                        </div>
+                    </div>
+                    <div class="text-slate-600 text-sm leading-relaxed space-y-3">
+                        <p>
+                            Výroba autoklíčů nebo vyřešení ztráty posledního autoklíče <strong class="text-slate-900">bez nutnosti odtahu auta</strong>.
+                        </p>
+                        <p>
+                            Výroba probíhá v provozovně nebo přímo u vozu klienta na předem domluveném místě.
+                        </p>
+                        <p class="text-xs text-slate-500 italic">
+                            * Cena je odvozena od typu klíče, roku výroby a modelu vozu.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="service-card p-8 shadow-md">
+                    <div class="flex justify-between items-start mb-6">
+                        <h4 class="text-xl font-black text-secondary uppercase">Montáže<br>zámků</h4>
+                        <div class="text-4xl text-slate-300">
+                            <i class="fa-solid fa-screwdriver-wrench"></i>
+                        </div>
+                    </div>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                        Možnost <strong>okamžité montáže</strong> nových zámků, kování a dalších bezpečnostních dveřních prvků přímo na místě.
+                    </p>
+                    <div class="mt-2 border-t border-slate-200 pt-3">
+                        <span class="text-emerald-600 font-bold text-xs uppercase tracking-wide flex items-center">
+                            <i class="fa-solid fa-certificate mr-2"></i> Nabízíme 6 měsíců záruku
+                        </span>
+                    </div>
+                </div>
+
+                <div class="service-card p-8 shadow-md">
+                    <div class="flex justify-between items-start mb-6">
+                        <h4 class="text-xl font-black text-secondary uppercase">Servis a<br>úpravy</h4>
+                        <div class="text-4xl text-slate-300">
+                            <i class="fa-solid fa-rotate"></i>
+                        </div>
+                    </div>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                        Servis zámků a vložek, seřízení dveří, sjednocení vložek na společný klíč, knoflíkové přestavby a údržba.
+                    </p>
+                </div>
+
+                <div class="service-card p-8 shadow-md">
+                    <div class="flex justify-between items-start mb-6">
+                        <h4 class="text-xl font-black text-secondary uppercase">Generální<br>klíč</h4>
+                        <div class="text-4xl text-slate-300">
+                            <i class="fa-solid fa-key"></i>
+                        </div>
+                    </div>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                        Návrh a realizace systémů generálního klíče (SGHK). Špičková technologie pro bezpečný a spolehlivý přístup k vašim prostorům.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="lokality" class="py-16 md:py-24 bg-slate-900 text-white relative overflow-hidden border-y-4 border-primary">
+        <div class="absolute inset-0 opacity-25 pointer-events-none mix-blend-overlay">
+             <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=2000&auto=format&fit=crop" class="w-full h-full object-cover grayscale" alt="Mapa">
+        </div>
+
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="text-center mb-12 md:mb-16">
+                <span class="text-red-500 font-bold tracking-widest uppercase text-sm">Dojezdová místa</span>
+                <h3 class="text-3xl md:text-4xl font-black mt-2 mb-6 uppercase">Kde zasahujeme?</h3>
+                <p class="text-slate-400 text-lg max-w-2xl mx-auto">
+                    Naši technici jsou strategicky rozmístěni. Najeďte myší na město pro zobrazení adresy a klikněte pro zobrazení na mapě.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 mb-10 text-center">
+                
+                <div class="location-card bg-slate-800 border border-slate-700 rounded h-16 relative overflow-hidden group cursor-pointer hover:border-primary transition-colors" data-map-query="U Vodojemu 1230, Valašské Meziříčí">
+                    <div class="w-full h-full flex flex-col items-center justify-center px-2 group-hover:opacity-0 transition-opacity duration-300">
+                         <h5 class="font-bold text-sm text-slate-200">Valašské Meziříčí</h5>
+                    </div>
+                    <div class="absolute inset-0 bg-primary flex flex-col items-center justify-center text-white translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out px-2">
+                        <span class="text-xs opacity-90">U Vodojemu 1230</span>
+                        <span class="text-xs font-bold">Valašské Meziříčí</span>
+                        <div class="mt-1 text-[10px] uppercase border border-white/50 px-2 py-0.5 rounded-full">Ukázat na mapě</div>
+                    </div>
+                </div>
+
+                <div class="location-card bg-slate-800 border border-slate-700 rounded h-16 relative overflow-hidden group cursor-pointer hover:border-primary transition-colors" data-map-query="V Dolině 133, Zlín">
+                    <div class="w-full h-full flex flex-col items-center justify-center px-2 group-hover:opacity-0 transition-opacity duration-300">
+                         <h5 class="font-bold text-sm text-slate-200">Zlín</h5>
+                    </div>
+                    <div class="absolute inset-0 bg-primary flex flex-col items-center justify-center text-white translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out px-2">
+                        <span class="text-xs opacity-90">V Dolině 133</span>
+                        <span class="text-xs font-bold">Zlín</span>
+                        <div class="mt-1 text-[10px] uppercase border border-white/50 px-2 py-0.5 rounded-full">Ukázat na mapě</div>
+                    </div>
+                </div>
+
+                <div class="location-card bg-slate-800 border border-slate-700 rounded h-16 relative overflow-hidden group cursor-pointer hover:border-primary transition-colors" data-map-query="Moravská 2867/102, Ostrava">
+                    <div class="w-full h-full flex flex-col items-center justify-center px-2 group-hover:opacity-0 transition-opacity duration-300">
+                         <h5 class="font-bold text-sm text-slate-200">Ostrava</h5>
+                    </div>
+                    <div class="absolute inset-0 bg-primary flex flex-col items-center justify-center text-white translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out px-2">
+                        <span class="text-xs opacity-90">Moravská 2867/102</span>
+                        <span class="text-xs font-bold">Ostrava</span>
+                        <div class="mt-1 text-[10px] uppercase border border-white/50 px-2 py-0.5 rounded-full">Ukázat na mapě</div>
+                    </div>
+                </div>
+
+                <div class="location-card bg-slate-800 border border-slate-700 rounded h-16 relative overflow-hidden group cursor-pointer hover:border-primary transition-colors" data-map-query="Třanovského 382, Frýdek Místek">
+                    <div class="w-full h-full flex flex-col items-center justify-center px-2 group-hover:opacity-0 transition-opacity duration-300">
+                         <h5 class="font-bold text-sm text-slate-200">Frýdek Místek</h5>
+                    </div>
+                    <div class="absolute inset-0 bg-primary flex flex-col items-center justify-center text-white translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out px-2">
+                        <span class="text-xs opacity-90">Třanovského 382</span>
+                        <span class="text-xs font-bold">Frýdek Místek</span>
+                        <div class="mt-1 text-[10px] uppercase border border-white/50 px-2 py-0.5 rounded-full">Ukázat na mapě</div>
+                    </div>
+                </div>
+
+                <div class="location-card bg-slate-800 border border-slate-700 rounded h-16 relative overflow-hidden group cursor-pointer hover:border-primary transition-colors" data-map-query="Hranická 1118, Lipník nad Bečvou">
+                    <div class="w-full h-full flex flex-col items-center justify-center px-2 group-hover:opacity-0 transition-opacity duration-300">
+                         <h5 class="font-bold text-sm text-slate-200">Lipník n. B.</h5>
+                    </div>
+                    <div class="absolute inset-0 bg-primary flex flex-col items-center justify-center text-white translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out px-2">
+                        <span class="text-xs opacity-90">Hranická 1118</span>
+                        <span class="text-xs font-bold">Lipník n. B.</span>
+                        <div class="mt-1 text-[10px] uppercase border border-white/50 px-2 py-0.5 rounded-full">Ukázat na mapě</div>
+                    </div>
+                </div>
+
+                <div class="location-card bg-slate-800 border border-slate-700 rounded h-16 relative overflow-hidden group cursor-pointer hover:border-primary transition-colors" data-map-query="SNP 1180, Otrokovice">
+                    <div class="w-full h-full flex flex-col items-center justify-center px-2 group-hover:opacity-0 transition-opacity duration-300">
+                         <h5 class="font-bold text-sm text-slate-200">Otrokovice</h5>
+                    </div>
+                    <div class="absolute inset-0 bg-primary flex flex-col items-center justify-center text-white translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out px-2">
+                        <span class="text-xs opacity-90">SNP 1180</span>
+                        <span class="text-xs font-bold">Otrokovice</span>
+                        <div class="mt-1 text-[10px] uppercase border border-white/50 px-2 py-0.5 rounded-full">Ukázat na mapě</div>
+                    </div>
+                </div>
+
+                <div class="location-card bg-slate-800 border border-slate-700 rounded h-16 relative overflow-hidden group cursor-pointer hover:border-primary transition-colors" data-map-query="Osvoboditelů 1810, Uherský Brod">
+                    <div class="w-full h-full flex flex-col items-center justify-center px-2 group-hover:opacity-0 transition-opacity duration-300">
+                         <h5 class="font-bold text-sm text-slate-200">Uherský Brod</h5>
+                    </div>
+                    <div class="absolute inset-0 bg-primary flex flex-col items-center justify-center text-white translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out px-2">
+                        <span class="text-xs opacity-90">Osvoboditelů 1810</span>
+                        <span class="text-xs font-bold">Uherský Brod</span>
+                        <div class="mt-1 text-[10px] uppercase border border-white/50 px-2 py-0.5 rounded-full">Ukázat na mapě</div>
+                    </div>
+                </div>
+
+                <div class="location-card bg-slate-800 border border-slate-700 rounded h-16 relative overflow-hidden group cursor-pointer hover:border-primary transition-colors" data-map-query="Jasínkova 355/21, Přerov">
+                    <div class="w-full h-full flex flex-col items-center justify-center px-2 group-hover:opacity-0 transition-opacity duration-300">
+                         <h5 class="font-bold text-sm text-slate-200">Přerov</h5>
+                    </div>
+                    <div class="absolute inset-0 bg-primary flex flex-col items-center justify-center text-white translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out px-2">
+                        <span class="text-xs opacity-90">Jasínkova 355/21</span>
+                        <span class="text-xs font-bold">Přerov</span>
+                        <div class="mt-1 text-[10px] uppercase border border-white/50 px-2 py-0.5 rounded-full">Ukázat na mapě</div>
+                    </div>
+                </div>
+
+                <div class="location-card bg-slate-800 border border-slate-700 rounded h-16 relative overflow-hidden group cursor-pointer hover:border-primary transition-colors" data-map-query="Štěpánská 1885, Vsetín">
+                    <div class="w-full h-full flex flex-col items-center justify-center px-2 group-hover:opacity-0 transition-opacity duration-300">
+                         <h5 class="font-bold text-sm text-slate-200">Vsetín</h5>
+                    </div>
+                    <div class="absolute inset-0 bg-primary flex flex-col items-center justify-center text-white translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out px-2">
+                        <span class="text-xs opacity-90">Štěpánská 1885</span>
+                        <span class="text-xs font-bold">Vsetín</span>
+                        <div class="mt-1 text-[10px] uppercase border border-white/50 px-2 py-0.5 rounded-full">Ukázat na mapě</div>
+                    </div>
+                </div>
+
+                <div class="location-card bg-slate-800 border border-slate-700 rounded h-16 relative overflow-hidden group cursor-pointer hover:border-primary transition-colors" data-map-query="Čs. brigády 131, Bystřice pod Hostýnem">
+                    <div class="w-full h-full flex flex-col items-center justify-center px-2 group-hover:opacity-0 transition-opacity duration-300">
+                         <h5 class="font-bold text-sm text-slate-200">Bystřice p. H.</h5>
+                    </div>
+                    <div class="absolute inset-0 bg-primary flex flex-col items-center justify-center text-white translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out px-2">
+                        <span class="text-xs opacity-90">Čs. brigády 131</span>
+                        <span class="text-xs font-bold">Bystřice p. H.</span>
+                        <div class="mt-1 text-[10px] uppercase border border-white/50 px-2 py-0.5 rounded-full">Ukázat na mapě</div>
+                    </div>
+                </div>
+
+                <div class="location-card bg-slate-800 border border-slate-700 rounded h-16 relative overflow-hidden group cursor-pointer hover:border-primary transition-colors" data-map-query="Nerudova 702, Frýdlant nad Ostravicí">
+                    <div class="w-full h-full flex flex-col items-center justify-center px-2 group-hover:opacity-0 transition-opacity duration-300">
+                         <h5 class="font-bold text-sm text-slate-200">Frýdlant n. O.</h5>
+                    </div>
+                    <div class="absolute inset-0 bg-primary flex flex-col items-center justify-center text-white translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out px-2">
+                        <span class="text-xs opacity-90">Nerudova 702</span>
+                        <span class="text-xs font-bold">Frýdlant n. O.</span>
+                        <div class="mt-1 text-[10px] uppercase border border-white/50 px-2 py-0.5 rounded-full">Ukázat na mapě</div>
+                    </div>
+                </div>
+
+                <div class="location-card bg-slate-800 border border-slate-700 rounded h-16 relative overflow-hidden group cursor-pointer hover:border-primary transition-colors" data-map-query="Galašova 1739, Hranice">
+                    <div class="w-full h-full flex flex-col items-center justify-center px-2 group-hover:opacity-0 transition-opacity duration-300">
+                         <h5 class="font-bold text-sm text-slate-200">Hranice</h5>
+                    </div>
+                    <div class="absolute inset-0 bg-primary flex flex-col items-center justify-center text-white translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out px-2">
+                        <span class="text-xs opacity-90">Galašova 1739</span>
+                        <span class="text-xs font-bold">Hranice</span>
+                        <div class="mt-1 text-[10px] uppercase border border-white/50 px-2 py-0.5 rounded-full">Ukázat na mapě</div>
+                    </div>
+                </div>
+
+                <div class="location-card bg-slate-800 border border-slate-700 rounded h-16 relative overflow-hidden group cursor-pointer hover:border-primary transition-colors" data-map-query="Úprkova 3684/3, Kroměříž">
+                    <div class="w-full h-full flex flex-col items-center justify-center px-2 group-hover:opacity-0 transition-opacity duration-300">
+                         <h5 class="font-bold text-sm text-slate-200">Kroměříž</h5>
+                    </div>
+                    <div class="absolute inset-0 bg-primary flex flex-col items-center justify-center text-white translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out px-2">
+                        <span class="text-xs opacity-90">Úprkova 3684/3</span>
+                        <span class="text-xs font-bold">Kroměříž</span>
+                        <div class="mt-1 text-[10px] uppercase border border-white/50 px-2 py-0.5 rounded-full">Ukázat na mapě</div>
+                    </div>
+                </div>
+
+                <div class="location-card bg-slate-800 border border-slate-700 rounded h-16 relative overflow-hidden group cursor-pointer hover:border-primary transition-colors" data-map-query="Budovatelů 1772/2, Nový Jičín">
+                    <div class="w-full h-full flex flex-col items-center justify-center px-2 group-hover:opacity-0 transition-opacity duration-300">
+                         <h5 class="font-bold text-sm text-slate-200">Nový Jičín</h5>
+                    </div>
+                    <div class="absolute inset-0 bg-primary flex flex-col items-center justify-center text-white translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out px-2">
+                        <span class="text-xs opacity-90">Budovatelů 1772/2</span>
+                        <span class="text-xs font-bold">Nový Jičín</span>
+                        <div class="mt-1 text-[10px] uppercase border border-white/50 px-2 py-0.5 rounded-full">Ukázat na mapě</div>
+                    </div>
+                </div>
+
+                <div class="location-card bg-slate-800 border border-slate-700 rounded h-16 relative overflow-hidden group cursor-pointer hover:border-primary transition-colors" data-map-query="Meziříčská 1660, Rožnov pod Radhoštěm">
+                    <div class="w-full h-full flex flex-col items-center justify-center px-2 group-hover:opacity-0 transition-opacity duration-300">
+                         <h5 class="font-bold text-sm text-slate-200">Rožnov p. R.</h5>
+                    </div>
+                    <div class="absolute inset-0 bg-primary flex flex-col items-center justify-center text-white translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out px-2">
+                        <span class="text-xs opacity-90">Meziříčská 1660</span>
+                        <span class="text-xs font-bold">Rožnov p. R.</span>
+                        <div class="mt-1 text-[10px] uppercase border border-white/50 px-2 py-0.5 rounded-full">Ukázat na mapě</div>
+                    </div>
+                </div>
+
+                <div class="location-card bg-slate-800 border border-slate-700 rounded h-16 relative overflow-hidden group cursor-pointer hover:border-primary transition-colors" data-map-query="Stará Tenice 1199, Uherské Hradiště">
+                    <div class="w-full h-full flex flex-col items-center justify-center px-2 group-hover:opacity-0 transition-opacity duration-300">
+                         <h5 class="font-bold text-sm text-slate-200">Uherské Hradiště</h5>
+                    </div>
+                    <div class="absolute inset-0 bg-primary flex flex-col items-center justify-center text-white translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out px-2">
+                        <span class="text-xs opacity-90">Stará Tenice 1199</span>
+                        <span class="text-xs font-bold">Uherské Hradiště</span>
+                        <div class="mt-1 text-[10px] uppercase border border-white/50 px-2 py-0.5 rounded-full">Ukázat na mapě</div>
+                    </div>
+                </div>
+
+                <div class="location-card bg-slate-800 border border-slate-700 rounded h-16 relative overflow-hidden group cursor-pointer hover:border-primary transition-colors" data-map-query="Luční 914, Valašské Klobouky">
+                    <div class="w-full h-full flex flex-col items-center justify-center px-2 group-hover:opacity-0 transition-opacity duration-300">
+                         <h5 class="font-bold text-sm text-slate-200">Valašské Klobouky</h5>
+                    </div>
+                    <div class="absolute inset-0 bg-primary flex flex-col items-center justify-center text-white translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out px-2">
+                        <span class="text-xs opacity-90">Luční 914</span>
+                        <span class="text-xs font-bold">Valašské Klobouky</span>
+                        <div class="mt-1 text-[10px] uppercase border border-white/50 px-2 py-0.5 rounded-full">Ukázat na mapě</div>
+                    </div>
+                </div>
+
+                <div class="location-card bg-slate-800 border border-slate-700 rounded h-16 relative overflow-hidden group cursor-pointer hover:border-primary transition-colors" data-map-query="Dr. Čejky 1518, Příbor">
+                    <div class="w-full h-full flex flex-col items-center justify-center px-2 group-hover:opacity-0 transition-opacity duration-300">
+                         <h5 class="font-bold text-sm text-slate-200">Příbor</h5>
+                    </div>
+                    <div class="absolute inset-0 bg-primary flex flex-col items-center justify-center text-white translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out px-2">
+                        <span class="text-xs opacity-90">Dr. Čejky 1518</span>
+                        <span class="text-xs font-bold">Příbor</span>
+                        <div class="mt-1 text-[10px] uppercase border border-white/50 px-2 py-0.5 rounded-full">Ukázat na mapě</div>
+                    </div>
+                </div>
+
+                <div class="location-card bg-slate-800 border border-slate-700 rounded h-16 relative overflow-hidden group cursor-pointer hover:border-primary transition-colors" data-map-query="17. listopadu 1208/20, Havířov">
+                    <div class="w-full h-full flex flex-col items-center justify-center px-2 group-hover:opacity-0 transition-opacity duration-300">
+                         <h5 class="font-bold text-sm text-slate-200">Havířov</h5>
+                    </div>
+                    <div class="absolute inset-0 bg-primary flex flex-col items-center justify-center text-white translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out px-2">
+                        <span class="text-xs opacity-90">17. listopadu 1208/20</span>
+                        <span class="text-xs font-bold">Havířov</span>
+                        <div class="mt-1 text-[10px] uppercase border border-white/50 px-2 py-0.5 rounded-full">Ukázat na mapě</div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="text-center">
+                <p class="text-slate-400 text-sm font-medium italic">Vyjíždíme i do okolních obcí. Zavolejte a zeptejte se.</p>
+                
+                <button id="toggleMapBtn" class="mt-6 text-primary font-bold uppercase text-xs tracking-widest hover:text-white transition-colors focus:outline-none flex items-center justify-center gap-2 mx-auto border-b border-dashed border-primary pb-0.5 hover:border-white">
+                    <span>Zobrazit mapu poboček</span>
+                    <i class="fa-solid fa-chevron-down transition-transform duration-300" id="toggleMapIcon"></i>
+                </button>
+
+                <div id="locationsMap" class="hidden w-full h-96 bg-slate-800 rounded shadow-inner border border-slate-700 overflow-hidden relative group mt-8 transition-all duration-500">
+                    <button id="resetMapBtn" class="absolute top-4 left-4 bg-white text-secondary hover:text-primary hover:bg-slate-50 px-4 py-2 rounded shadow-md text-xs font-bold z-20 flex items-center gap-2 transition-all duration-300 hidden border border-slate-200">
+                        <i class="fa-solid fa-rotate-left"></i> Zpět na přehled
+                    </button>
+
+                    <iframe 
+                    src="https://www.google.com/maps/d/u/0/embed?mid=1a_LqESVrIvajubfKi_TpcoHB1ZKvp-c&ehbc=2E312F" 
+                    width="100%" 
+                    height="100%" 
+                    style="border:0; margin-top: -55px; height: calc(100% + 55px);" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade" 
+                    class="absolute inset-0 w-full grayscale hover:grayscale-0 transition-all duration-700 opacity-90 hover:opacity-100">
+                    </iframe>
+                    
+                    <div class="absolute top-4 right-4 bg-slate-900/90 backdrop-blur px-4 py-2 shadow-md text-xs font-bold text-white pointer-events-none z-10 border border-slate-700">
+                    <i class="fa-solid fa-map-pin text-primary mr-1"></i> Síť techniků
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cenik" class="py-24 bg-white border-t border-slate-200 relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/grid-me.png')] opacity-50 pointer-events-none"></div>
+        
+        <div class="container mx-auto px-4 max-w-4xl relative z-10">
+            <div class="text-center mb-16">
+                <span class="text-primary font-bold tracking-widest uppercase text-sm">Bez skrytých poplatků</span>
+                <h3 class="text-4xl font-black text-secondary mt-2 mb-4 uppercase">Ceník Služeb</h3>
+            </div>
+
+            <div class="bg-white border-2 border-slate-800 rounded shadow-hard overflow-hidden mb-10">
+                <div class="bg-slate-800 text-white p-4 flex justify-between items-center">
+                    <span class="font-bold uppercase tracking-wider">Úkon</span>
+                    <span class="font-bold uppercase tracking-wider">Cena (od)</span>
+                </div>
+                
+                <div class="divide-y-2 divide-slate-100 text-slate-700">
+                    <div class="p-4 flex justify-between items-center hover:bg-slate-50">
+                        <span class="font-bold">Nouzové otevření zabouchnutých dveří</span>
+                        <span class="font-black text-slate-900 text-lg">800 Kč</span>
+                    </div>
+                    <div class="p-4 flex justify-between items-center hover:bg-slate-50">
+                        <span class="font-bold">Nouzové otevření zamčených dveří</span>
+                        <span class="font-black text-slate-900 text-lg">2 000 Kč</span>
+                    </div>
+                    <div class="p-4 flex justify-between items-center hover:bg-slate-50">
+                        <span class="font-bold">Nouzové otevření auta</span>
+                        <span class="font-black text-slate-900 text-lg">1 500 Kč</span>
+                    </div>
+                    <div class="p-4 flex justify-between items-center hover:bg-slate-50">
+                        <span class="font-bold">Montáž / servis dveří a vložek</span>
+                        <span class="font-black text-slate-900 text-lg">1 000 Kč</span>
+                    </div>
+                    <div class="p-4 flex justify-between items-center hover:bg-slate-50">
+                        <span class="font-bold">Výroba obyčejného autoklíče</span>
+                        <span class="font-black text-slate-900 text-lg">1 500 Kč</span>
+                    </div>
+                    <div class="p-4 flex justify-between items-center hover:bg-slate-50">
+                        <span class="font-bold">Výroba dálkového autoklíče</span>
+                        <span class="font-black text-slate-900 text-lg">2 500 Kč</span>
+                    </div>
+                    <div class="p-4 flex justify-between items-center bg-red-50 text-red-900 border-l-4 border-red-600">
+                        <span class="font-bold"><i class="fa-solid fa-ban mr-2"></i> Marný výjezd (zrušení na místě)</span>
+                        <span class="font-black text-lg">2 000 Kč</span>
+                    </div>
+                    <div class="p-4 flex justify-between items-center bg-slate-100 text-slate-800">
+                        <span class="font-bold"><i class="fa-solid fa-moon mr-2"></i> Příplatek noc / víkend</span>
+                        <span class="font-black text-lg">+ 50 %</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                
+                <div class="bg-white border border-slate-300 p-6 flex gap-4 items-start shadow-sm relative overflow-hidden group hover:border-primary transition-colors">
+                    <div class="absolute inset-0 bg-grid-light opacity-30 pointer-events-none"></div>
+                    <div class="text-3xl text-primary relative z-10 mt-1"><i class="fa-solid fa-rotate"></i></div>
+                    <div class="relative z-10">
+                        <h4 class="font-bold text-lg text-secondary uppercase mb-2">Reklamace na provozovně</h4>
+                        <p class="text-sm text-slate-700 font-medium leading-relaxed">
+                            V případě vadného výrobku v záruce je možná výměna za nový kus či servis vadného dílu přímo u nás.
+                        </p>
+                        <p class="text-xs text-red-600 font-black mt-3 uppercase tracking-wide flex items-center">
+                            <i class="fa-solid fa-phone mr-1"></i> Prosíme, volejte před příjezdem!
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-white border border-slate-300 p-6 flex gap-4 items-start shadow-sm relative overflow-hidden group hover:border-primary transition-colors">
+                    <div class="absolute inset-0 bg-grid-light opacity-30 pointer-events-none"></div>
+                    <div class="text-3xl text-primary relative z-10 mt-1"><i class="fa-solid fa-truck-fast"></i></div>
+                    <div class="relative z-10">
+                        <h4 class="font-bold text-lg text-secondary uppercase mb-2">Výměna u klienta</h4>
+                        <p class="text-sm text-slate-700 font-medium leading-relaxed">
+                            Při požadavku na výměnu zboží nebo servis přímo u vás je účtována doprava.
+                        </p>
+                        <div class="mt-3 inline-block bg-slate-100 border border-slate-300 px-3 py-1 rounded">
+                            <p class="text-xs text-secondary font-black uppercase">
+                                Doprava: 24 Kč / km <span class="font-normal text-slate-500">(jednosměrně od provozovny)</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="kontakt" class="py-24 bg-slate-50 relative relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 pointer-events-none">
+            <img src="https://images.unsplash.com/photo-1581093450021-4a7360e9a6b5?q=80&w=2000&auto=format&fit=crop" class="w-full h-full object-cover grayscale" alt="Technický výkres">
+        </div>
+
+        <div class="container mx-auto px-4 relative z-10">
+            
+            <div class="bg-white rounded shadow-hard border border-slate-200 overflow-hidden flex flex-col md:flex-row mb-16 relative z-10">
+                
+                <div class="p-10 lg:p-14 md:w-5/12 bg-slate-100 border-r border-slate-200 flex flex-col justify-center">
+                    <h3 class="text-3xl font-black text-secondary mb-8 uppercase">Kontakty</h3>
+                    
+                    <div class="space-y-8">
+                        <div class="flex items-start gap-5">
+                            <div class="w-12 h-12 bg-secondary text-white flex items-center justify-center rounded shrink-0">
+                                <i class="fa-solid fa-building text-xl"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-secondary text-sm uppercase mb-1">Centrála</h5>
+                                <p class="text-slate-600 font-medium text-sm">
+                                    U Vodojemu 1230<br>
+                                    757 01 Valašské Meziříčí
                                 </p>
                             </div>
                         </div>
+
+                        <div class="flex items-start gap-5">
+                            <div class="w-12 h-12 bg-primary text-white flex items-center justify-center rounded shrink-0 animate-pulse">
+                                <i class="fa-solid fa-phone text-xl"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-secondary text-sm uppercase mb-1">Dispečink</h5>
+                                <a href="tel:792297447" class="text-2xl font-black text-primary hover:text-black transition-colors">792 297 447</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-5">
+                            <div class="w-12 h-12 bg-facebook text-white flex items-center justify-center rounded shrink-0">
+                                <i class="fa-brands fa-facebook-f text-xl"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-secondary text-sm uppercase mb-1">Facebook</h5>
+                                <a href="https://www.facebook.com/programovaniklicu" target="_blank" class="text-slate-600 font-medium hover:text-facebook transition-colors">
+                                    Zámečník & Autoklíče
+                                </a>
+                                <p class="text-slate-500 text-xs mt-0.5">Sledujte naši práci a novinky.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-5">
+                            <div class="w-12 h-12 bg-slate-300 text-slate-700 flex items-center justify-center rounded shrink-0">
+                                <i class="fa-solid fa-envelope text-xl"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-secondary text-sm uppercase mb-1">Email</h5>
+                                <a href="mailto:zamkar@outlook.cz" class="text-blue-600 font-bold hover:underline">zamkar@outlook.cz</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="bg-white p-8 rounded-3xl shadow-xl border border-slate-100 relative" data-aos="fade-left">
-                    <h3 class="font-display font-bold text-2xl text-dark mb-6">Napište mi zprávu</h3>
-                    
-                    <form id="contact-form" class="space-y-5">
+                <div class="p-10 lg:p-14 md:w-7/12 bg-white flex flex-col justify-center relative">
+                    <div class="relative z-10">
+                        <h4 class="text-2xl font-bold text-secondary mb-2">Rychlá poptávka</h4>
+                        <p class="text-slate-500 mb-8 text-sm">Napište nám, ozveme se co nejdříve.</p>
                         
-                        <input type="hidden" name="access_key" value="71d63acb-1146-402b-969c-378cc159230b">
-                        
-                        <input type="hidden" name="subject" value="Nová poptávka z Richtarweb">
-                        <input type="hidden" name="from_name" value="Richtarweb Formulář">
-                        <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+                        <form action="https://api.web3forms.com/submit" method="POST" class="space-y-4">
+                            <input type="hidden" name="access_key" value="e06686b5-2e0e-4c04-b7ab-eb9913919674">
+                            
+                            <input type="hidden" name="subject" value="Nová poptávka z webu">
+                            <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
 
-                        <div>
-                            <label for="name" class="block text-sm font-semibold text-slate-700 mb-2">Vaše jméno</label>
-                            <input type="text" name="name" id="name" required placeholder="Jan Novák" 
-                                class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all font-medium text-dark placeholder:text-slate-400">
-                        </div>
-
-                        <div>
-                            <label for="email" class="block text-sm font-semibold text-slate-700 mb-2">Váš email</label>
-                            <input type="email" name="email" id="email" required placeholder="jan@firma.cz" 
-                                class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all font-medium text-dark placeholder:text-slate-400">
-                        </div>
-
-                        <div>
-                            <label for="message" class="block text-sm font-semibold text-slate-700 mb-2">O čem je váš projekt?</label>
-                            <textarea name="message" id="message" rows="4" required placeholder="Potřebuji vytvořit web pro..." 
-                                class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all font-medium text-dark placeholder:text-slate-400 resize-none"></textarea>
-                        </div>
-
-                        <button type="submit" id="submit-btn" class="w-full py-4 px-6 bg-dark text-white font-bold rounded-xl hover:bg-primary transition-all duration-300 shadow-lg shadow-dark/20 hover:shadow-primary/40 flex justify-center items-center gap-2 group disabled:opacity-50 disabled:cursor-not-allowed">
-                            <span id="btn-text">Odeslat zprávu</span>
-                            <svg id="btn-icon" class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                            </svg>
-                            <svg id="btn-loader" class="hidden animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                            </svg>
-                        </button>
-
-                        <div id="result" class="hidden text-center text-sm font-bold p-4 rounded-xl"></div>
-                    </form>
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-500 uppercase mb-1">Jméno</label>
+                                    <input type="text" name="name" class="w-full px-4 py-3 bg-slate-50 border-2 border-slate-200 focus:border-primary focus:bg-white outline-none font-bold text-slate-800" required>
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-500 uppercase mb-1">Telefon</label>
+                                    <input type="tel" name="phone" class="w-full px-4 py-3 bg-slate-50 border-2 border-slate-200 focus:border-primary focus:bg-white outline-none font-bold text-slate-800" required>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-500 uppercase mb-1">Email</label>
+                                <input type="email" name="email" class="w-full px-4 py-3 bg-slate-50 border-2 border-slate-200 focus:border-primary focus:bg-white outline-none font-bold text-slate-800" required>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-500 uppercase mb-1">Zpráva</label>
+                                <textarea name="message" rows="3" class="w-full px-4 py-3 bg-slate-50 border-2 border-slate-200 focus:border-primary focus:bg-white outline-none font-bold text-slate-800 resize-none" required></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-slate-800 hover:bg-black text-white font-bold py-4 px-6 shadow-lg transition-all flex justify-center items-center gap-2 uppercase tracking-wider">
+                                <span>Odeslat zprávu</span>
+                                <i class="fa-solid fa-paper-plane"></i>
+                            </button>
+                        </form>
+                    </div>
                 </div>
             </div>
 
-            <div class="border-t border-slate-100 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                <p class="text-slate-400 text-sm">&copy; 2024 Pavel Richtar. Všechna práva vyhrazena.</p>
-                <div class="flex space-x-6">
-                    <a href="#" class="text-slate-400 hover:text-primary transition-colors">
-                        <span class="sr-only">LinkedIn</span>
-                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                    </a>
-                    <a href="#" class="text-slate-400 hover:text-primary transition-colors">
-                        <span class="sr-only">Instagram</span>
-                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            <div class="w-full h-96 bg-slate-200 rounded shadow-inner border border-slate-400 overflow-hidden relative group relative z-10">
+                 <iframe 
+                    src="https://www.google.com/maps/d/u/0/embed?mid=1a_LqESVrIvajubfKi_TpcoHB1ZKvp-c&ehbc=2E312F" 
+                    width="100%" 
+                    height="100%" 
+                    style="border:0; margin-top: -55px; height: calc(100% + 55px);" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade" 
+                    class="absolute inset-0 w-full grayscale hover:grayscale-0 transition-all duration-700">
+                 </iframe>
+                 
+                 <div class="absolute top-4 right-4 bg-white/90 backdrop-blur px-4 py-2 shadow-md text-xs font-bold text-secondary pointer-events-none z-10 border border-slate-300">
+                    <i class="fa-solid fa-map-pin text-primary mr-1"></i> Síť techniků
+                 </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="bg-slate-900 text-slate-400 py-16 border-t-8 border-primary relative overflow-hidden">
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                
+                <div>
+                    <h4 class="text-white font-black mb-6 uppercase tracking-wider text-sm border-b-2 border-slate-700 pb-2 inline-block">Kontakt</h4>
+                    <p class="mb-2 text-xl text-white font-bold">Zámečnictví & Klíče</p>
+                    <a href="tel:792297447" class="block text-3xl font-black text-primary hover:text-white transition-colors mb-3">792 297 447</a>
+                    <a href="mailto:zamkar@outlook.cz" class="text-sm hover:text-white transition-colors flex items-center gap-2">
+                        <i class="fa-solid fa-envelope"></i> zamkar@outlook.cz
                     </a>
                 </div>
+
+                <div>
+                    <h4 class="text-white font-black mb-6 uppercase tracking-wider text-sm border-b-2 border-slate-700 pb-2 inline-block">Rychlé odkazy</h4>
+                    <ul class="space-y-2 text-sm font-medium">
+                        <li><a href="#sluzby" class="hover:text-primary transition-colors">Otevírání dveří</a></li>
+                        <li><a href="#sluzby" class="hover:text-primary transition-colors">Autozámečník</a></li>
+                        <li><a href="#sluzby" class="hover:text-primary transition-colors">Trezory a sejfy</a></li>
+                        <li><a href="#lokality" class="hover:text-primary transition-colors">Seznam poboček</a></li>
+                    </ul>
+                </div>
+
+                <div class="lg:col-span-2">
+                    <h4 class="text-white font-black mb-6 uppercase tracking-wider text-sm border-b-2 border-slate-700 pb-2 inline-block">Působnost</h4>
+                    <div class="flex flex-wrap gap-2 text-xs font-bold uppercase">
+                        <span class="bg-slate-800 text-slate-300 border border-slate-600 px-3 py-1.5 rounded">Zlínský kraj</span>
+                        <span class="bg-slate-800 text-slate-300 border border-slate-600 px-3 py-1.5 rounded">Moravskoslezský kraj</span>
+                        <span class="bg-slate-800 text-slate-300 border border-slate-600 px-3 py-1.5 rounded">Olomoucký kraj</span>
+                    </div>
+                    <p class="mt-4 text-xs text-slate-500">
+                        Provozovatel nenese odpovědnost za škody způsobené zásahem, pokud byl zákazník o riziku poučen.
+                    </p>
+                </div>
+            </div>
+
+            <div class="text-center text-xs text-slate-600 border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p>© 2024 Zámečnická pohotovost.</p>
+                <p>IČO: 01096885 | <a href="#" class="hover:text-white transition-colors">GDPR</a></p>
             </div>
         </div>
     </footer>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({
-            once: true,
-            offset: 50,
-            duration: 800,
-        });
+        document.addEventListener('DOMContentLoaded', function() {
+            // Navbar Toggle Logic
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
 
-        // Mobilní menu
-        const btn = document.getElementById('mobile-menu-btn');
-        const menu = document.getElementById('mobile-menu');
+            if (mobileBtn && mobileMenu) {
+                mobileBtn.addEventListener('click', () => {
+                    const isOpen = mobileMenu.classList.contains('open');
+                    if (isOpen) {
+                        mobileMenu.classList.remove('open');
+                        // Optional: Change icon back to bars
+                        mobileBtn.innerHTML = '<i class="fa-solid fa-bars"></i>';
+                    } else {
+                        mobileMenu.classList.add('open');
+                        // Optional: Change icon to X
+                        mobileBtn.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+                    }
+                });
 
-        btn.addEventListener('click', () => {
-            menu.classList.toggle('hidden');
-        });
-        
-        menu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                menu.classList.add('hidden');
-            });
-        });
+                // Close menu when clicking a link
+                mobileMenu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.remove('open');
+                        mobileBtn.innerHTML = '<i class="fa-solid fa-bars"></i>';
+                    });
+                });
+            }
 
-        // LOGIKA PRO ODESLÁNÍ FORMULÁŘE BEZ PŘESMĚROVÁNÍ (AJAX)
-        const form = document.getElementById('contact-form');
-        const result = document.getElementById('result');
-        const submitBtn = document.getElementById('submit-btn');
-        const btnText = document.getElementById('btn-text');
-        const btnIcon = document.getElementById('btn-icon');
-        const btnLoader = document.getElementById('btn-loader');
+            // Map Logic
+            const btn = document.getElementById('toggleMapBtn');
+            const mapContainer = document.getElementById('locationsMap');
+            const mapIframe = mapContainer.querySelector('iframe');
+            const icon = document.getElementById('toggleMapIcon');
+            const span = btn.querySelector('span');
+            const locationCards = document.querySelectorAll('.location-card');
+            const resetBtn = document.getElementById('resetMapBtn');
+            const contactMap = document.querySelector('#kontakt iframe');
 
-        form.addEventListener('submit', function(e) {
-            e.preventDefault(); // Zabrání klasickému odeslání a přesměrování
+            // Default map URL from contact section as source of truth for "original" map
+            let defaultMapSrc = "https://www.google.com/maps/d/u/0/embed?mid=1a_LqESVrIvajubfKi_TpcoHB1ZKvp-c&ehbc=2E312F"; 
+            
+            // Toggle map visibility logic
+            if(btn && mapContainer) {
+                btn.addEventListener('click', () => {
+                    const isHidden = mapContainer.classList.contains('hidden');
+                    
+                    if (isHidden) {
+                        mapContainer.classList.remove('hidden');
+                        span.textContent = "Skrýt mapu poboček";
+                        icon.style.transform = "rotate(180deg)";
+                        setTimeout(() => {
+                            mapContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                        }, 100);
+                    } else {
+                        mapContainer.classList.add('hidden');
+                        span.textContent = "Zobrazit mapu poboček";
+                        icon.style.transform = "rotate(0deg)";
+                    }
+                });
+            }
 
-            // Změna tlačítka na stav "Odesílám..."
-            submitBtn.disabled = true;
-            btnText.innerText = "Odesílám...";
-            btnIcon.classList.add('hidden');
-            btnLoader.classList.remove('hidden');
-            result.classList.add('hidden');
+            // Location card click logic
+            if(locationCards.length > 0 && mapIframe) {
+                locationCards.forEach(card => {
+                    card.addEventListener('click', () => {
+                        const query = card.getAttribute('data-map-query');
+                        if(query) {
+                            // Update map source
+                            mapIframe.src = `https://maps.google.com/maps?q=${encodeURIComponent(query)}&z=15&output=embed`;
+                            
+                            // Open map if hidden
+                            if(mapContainer.classList.contains('hidden')) {
+                                mapContainer.classList.remove('hidden');
+                                span.textContent = "Skrýt mapu poboček";
+                                icon.style.transform = "rotate(180deg)";
+                            }
 
-            const formData = new FormData(form);
-            const object = Object.fromEntries(formData);
-            const json = JSON.stringify(object);
+                            // Show Reset Button
+                            resetBtn.classList.remove('hidden');
 
-            fetch('https://api.web3forms.com/submit', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                body: json
-            })
-            .then(async (response) => {
-                let json = await response.json();
-                if (response.status == 200) {
-                    // Úspěch
-                    result.innerHTML = "Děkuji! Zpráva byla úspěšně odeslána.";
-                    result.classList.remove('hidden');
-                    result.classList.add('bg-green-100', 'text-green-700');
-                    result.classList.remove('bg-red-100', 'text-red-700');
-                    form.reset();
-                } else {
-                    // Chyba ze strany API
-                    console.log(response);
-                    result.innerHTML = json.message;
-                    result.classList.remove('hidden');
-                    result.classList.add('bg-red-100', 'text-red-700');
-                }
-            })
-            .catch(error => {
-                // Chyba sítě
-                console.log(error);
-                result.innerHTML = "Něco se pokazilo. Zkuste to prosím později.";
-                result.classList.remove('hidden');
-                result.classList.add('bg-red-100', 'text-red-700');
-            })
-            .finally(() => {
-                // Vrácení tlačítka do původního stavu
-                submitBtn.disabled = false;
-                btnText.innerText = "Odeslat zprávu";
-                btnIcon.classList.remove('hidden');
-                btnLoader.classList.add('hidden');
-                
-                // Schování hlášky po 5 sekundách
-                setTimeout(() => {
-                    result.classList.add('hidden');
-                }, 5000);
-            });
+                            // Scroll to map
+                            setTimeout(() => {
+                                mapContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                            }, 100);
+                        }
+                    });
+                });
+            }
+
+            // Reset Map Logic
+            if(resetBtn && mapIframe) {
+                resetBtn.addEventListener('click', () => {
+                    mapIframe.src = defaultMapSrc;
+                    resetBtn.classList.add('hidden');
+                });
+            }
         });
     </script>
 </body>
